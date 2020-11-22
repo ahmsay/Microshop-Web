@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import axios from 'axios'
 
 class App extends Component {
   state = {
@@ -10,7 +11,10 @@ class App extends Component {
     }
   }
   fetch = (url) => {
-    console.log(url)
+    axios.get(url)
+    .then(response => {
+      console.log(response)
+    })
   }
   render() {
     return (

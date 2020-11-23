@@ -13,7 +13,7 @@ class App extends Component {
   fetch = (url) => {
     axios.get(url)
     .then(response => {
-      console.log(response)
+      console.table(response.data)
     })
   }
   render() {

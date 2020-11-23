@@ -6,8 +6,8 @@ class App extends Component {
     urls: {
       customers: 'http://localhost:8081/customers',
       products: 'http://localhost:8082/products',
-      payments: 'http://localhost:8083/payments',
-      orders: 'http://localhost:8084/orders'
+      payments: 'http://localhost:8083/orders',
+      orders: 'http://localhost:8084/payments'
     }
   }
   fetch = (url) => {

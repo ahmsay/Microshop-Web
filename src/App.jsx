@@ -4,10 +4,10 @@ import axios from 'axios'
 class App extends Component {
   state = {
     urls: {
-      customers: 'localhost:8081/customers',
-      products: 'localhost:8082/products',
-      payments: 'localhost:8083/payments',
-      orders: 'localhost:8084/orders'
+      customers: 'http://localhost:8081/customers',
+      products: 'http://localhost:8082/products',
+      payments: 'http://localhost:8083/payments',
+      orders: 'http://localhost:8084/orders'
     }
   }
   fetch = (url) => {

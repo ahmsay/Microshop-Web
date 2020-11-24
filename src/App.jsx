@@ -103,38 +103,54 @@ class App extends Component {
         <button onClick={ () => this.getOrders(this.state.urls.orders) }>Orders</button>
         <br/>
         <table id="customerTable">
-          <tr>
-            <th>Id</th>
-            <th>Name</th>
-          </tr>
-          { customerTable }
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Name</th>
+            </tr>
+          </thead>
+          <tbody>
+            { customerTable }
+          </tbody>
         </table>
         <table id="productTable">
-          <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Category</th>
-            <th>Payment Id</th>
-          </tr>
-          { productTable }
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Name</th>
+              <th>Price</th>
+              <th>Category</th>
+              <th>Payment Id</th>
+            </tr>
+          </thead>
+          <tbody>
+            { productTable }
+          </tbody>
         </table>
         <table id="paymentTable">
-          <tr>
-            <th>Id</th>
-            <th>Total Charge</th>
-            <th>Customer Id</th>
-          </tr>
-          { paymentTable }
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Total Charge</th>
+              <th>Customer Id</th>
+            </tr>
+          </thead>
+          <tbody>
+            { paymentTable }
+          </tbody>
         </table>
         <table id="orderTable">
-          <tr>
-            <th>Id</th>
-            <th>Status</th>
-            <th>Customer Id</th>
-            <th>Payment Id</th>
-          </tr>
-          { orderTable }
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Status</th>
+              <th>Customer Id</th>
+              <th>Payment Id</th>
+            </tr>
+          </thead>
+          <tbody>
+            { orderTable }
+          </tbody>
         </table>
       </div>
     )

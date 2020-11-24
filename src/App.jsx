@@ -16,12 +16,42 @@ class App extends Component {
       payments: []
     }
   }
-  fetch = (url) => {
+  getCustomers = (url) => {
     axios.get(url)
     .then(response => {
       this.setState({
         data: {
           customers: response.data
+        }
+      })
+    })
+  }
+  getProducts = (url) => {
+    axios.get(url)
+    .then(response => {
+      this.setState({
+        data: {
+          products: response.data
+        }
+      })
+    })
+  }
+  getOrders = (url) => {
+    axios.get(url)
+    .then(response => {
+      this.setState({
+        data: {
+          orders: response.data
+        }
+      })
+    })
+  }
+  getPayments = (url) => {
+    axios.get(url)
+    .then(response => {
+      this.setState({
+        data: {
+          payments: response.data
         }
       })
     })
@@ -34,7 +64,37 @@ class App extends Component {
           <td>{ customer.name }</td>
         </tr>
       )
-    });
+    })
+    let productTable = this.state.data.products.map(product => {
+      return (
+        <tr>
+          <td>{ product.id }</td>
+          <td>{ product.name }</td>
+          <td>{ product.price }</td>
+          <td>{ product.category }</td>
+          <td>{ product.paymentId }</td>
+        </tr>
+      )
+    })
+    let paymentTable = this.state.data.payments.map(payment => {
+      return (
+        <tr>
+          <td>{ payment.id }</td>
+          <td>{ payment.totalCharge }</td>
+          <td>{ payment.customerId }</td>
+        </tr>
+      )
+    })
+    let orderTable = this.state.data.customers.map(order => {
+      return (
+        <tr>
+          <td>{ order.id }</td>
+          <td>{ order.status }</td>
+          <td>{ order.customerId }</td>
+          <td>{ order.paymentId }</td>
+        </tr>
+      )
+    })
     return (
       <div className="App">
         <button onClick={ () => this.fetch(this.state.urls.customers) }>Customers</button>
@@ -48,6 +108,33 @@ class App extends Component {
             <th>Name</th>
           </tr>
           { customerTable }
+        </table>
+        <table>
+          <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Category</th>
+            <th>Payment Id</th>
+          </tr>
+          { productTable }
+        </table>
+        <table>
+          <tr>
+            <th>Id</th>
+            <th>Total Charge</th>
+            <th>Customer Id</th>
+          </tr>
+          { paymentTable }
+        </table>
+        <table>
+          <tr>
+            <th>Id</th>
+            <th>Status</th>
+            <th>Customer Id</th>
+            <th>Payment Id</th>
+          </tr>
+          { orderTable }
         </table>
       </div>
     )

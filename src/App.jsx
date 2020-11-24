@@ -6,14 +6,14 @@ class App extends Component {
     urls: {
       customers: 'http://localhost:8081/customers',
       products: 'http://localhost:8082/products',
-      payments: 'http://localhost:8083/orders',
-      orders: 'http://localhost:8084/payments'
+      orders: 'http://localhost:8083/orders',
+      payments: 'http://localhost:8084/payments'
     },
     data: {
       customers: [],
       products: [],
-      payments: [],
-      orders: []
+      orders: [],
+      payments: []
     }
   }
   fetch = (url) => {
@@ -42,7 +42,7 @@ class App extends Component {
         <button onClick={ () => this.fetch(this.state.urls.payments) }>Payments</button>
         <button onClick={ () => this.fetch(this.state.urls.orders) }>Orders</button>
         <br/>
-        <table id="customerTable">
+        <table>
           <tr>
             <th>Id</th>
             <th>Name</th>

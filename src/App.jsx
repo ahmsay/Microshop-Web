@@ -97,19 +97,19 @@ class App extends Component {
     })
     return (
       <div className="App">
-        <button onClick={ () => this.fetch(this.state.urls.customers) }>Customers</button>
-        <button onClick={ () => this.fetch(this.state.urls.products) }>Products</button>
-        <button onClick={ () => this.fetch(this.state.urls.payments) }>Payments</button>
-        <button onClick={ () => this.fetch(this.state.urls.orders) }>Orders</button>
+        <button onClick={ () => this.getCustomers(this.state.urls.customers) }>Customers</button>
+        <button onClick={ () => this.getProducts(this.state.urls.products) }>Products</button>
+        <button onClick={ () => this.getPayments(this.state.urls.payments) }>Payments</button>
+        <button onClick={ () => this.getOrders(this.state.urls.orders) }>Orders</button>
         <br/>
-        <table>
+        <table id="customerTable">
           <tr>
             <th>Id</th>
             <th>Name</th>
           </tr>
           { customerTable }
         </table>
-        <table>
+        <table id="productTable">
           <tr>
             <th>Id</th>
             <th>Name</th>
@@ -119,7 +119,7 @@ class App extends Component {
           </tr>
           { productTable }
         </table>
-        <table>
+        <table id="paymentTable">
           <tr>
             <th>Id</th>
             <th>Total Charge</th>
@@ -127,7 +127,7 @@ class App extends Component {
           </tr>
           { paymentTable }
         </table>
-        <table>
+        <table id="orderTable">
           <tr>
             <th>Id</th>
             <th>Status</th>

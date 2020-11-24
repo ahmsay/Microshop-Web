@@ -19,10 +19,22 @@ class App extends Component {
   fetch = (url) => {
     axios.get(url)
     .then(response => {
-      console.table(response.data)
+      this.setState({
+        data: {
+          customers: response.data
+        }
+      })
     })
   }
   render() {
+    let customerTable = this.state.data.customers.map(customer => {
+      return (
+        <tr>
+          <td>{ customer.id }</td>
+          <td>{ customer.name }</td>
+        </tr>
+      )
+    });
     return (
       <div className="App">
         <button onClick={ () => this.fetch(this.state.urls.customers) }>Customers</button>
@@ -30,6 +42,13 @@ class App extends Component {
         <button onClick={ () => this.fetch(this.state.urls.payments) }>Payments</button>
         <button onClick={ () => this.fetch(this.state.urls.orders) }>Orders</button>
         <br/>
+        <table id="customerTable">
+          <tr>
+            <th>Id</th>
+            <th>Name</th>
+          </tr>
+          { customerTable }
+        </table>
       </div>
     )
   }

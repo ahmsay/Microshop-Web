@@ -17,14 +17,10 @@ class App extends Component {
     }
   }
   getCustomers = (url) => {
-    axios.get(url)
-    .then(response => {
-      this.setState({
-        data: {
-          customers: response.data,
-          products: []
-        }
-      })
+    axios.get(url).then(response => {
+      let data = this.state.data
+      data.customers = response.data
+      this.setState({ data })
     })
   }
   getProducts = (url) => {

@@ -65,7 +65,7 @@ class App extends Component {
         </tr>
       )
     })
-    let productTable = this.state.data.products.map(product => {
+    /*let productTable = this.state.data.products.map(product => {
       return (
         <tr>
           <td>{ product.id }</td>
@@ -75,8 +75,8 @@ class App extends Component {
           <td>{ product.paymentId }</td>
         </tr>
       )
-    })
-    let paymentTable = this.state.data.payments.map(payment => {
+    })*/
+    /*let paymentTable = this.state.data.payments.map(payment => {
       return (
         <tr>
           <td>{ payment.id }</td>
@@ -84,8 +84,8 @@ class App extends Component {
           <td>{ payment.customerId }</td>
         </tr>
       )
-    })
-    let orderTable = this.state.data.customers.map(order => {
+    })*/
+    /*let orderTable = this.state.data.customers.map(order => {
       return (
         <tr>
           <td>{ order.id }</td>
@@ -94,7 +94,7 @@ class App extends Component {
           <td>{ order.paymentId }</td>
         </tr>
       )
-    })
+    })*/
     return (
       <div className="App">
         <button onClick={ () => this.getCustomers(this.state.urls.customers) }>Customers</button>
@@ -113,7 +113,7 @@ class App extends Component {
             { customerTable }
           </tbody>
         </table>
-        <table id="productTable">
+        {/*<table id="productTable">
           <thead>
             <tr>
               <th>Id</th>
@@ -126,8 +126,8 @@ class App extends Component {
           <tbody>
             { productTable }
           </tbody>
-        </table>
-        <table id="paymentTable">
+        </table>*/}
+        {/*<table id="paymentTable">
           <thead>
             <tr>
               <th>Id</th>
@@ -138,8 +138,8 @@ class App extends Component {
           <tbody>
             { paymentTable }
           </tbody>
-        </table>
-        <table id="orderTable">
+        </table>*/}
+        {/*<table id="orderTable">
           <thead>
             <tr>
               <th>Id</th>
@@ -151,7 +151,7 @@ class App extends Component {
           <tbody>
             { orderTable }
           </tbody>
-        </table>
+        </table>*/}
       </div>
     )
   }

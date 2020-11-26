@@ -21,7 +21,8 @@ class App extends Component {
     .then(response => {
       this.setState({
         data: {
-          customers: response.data
+          customers: response.data,
+          products: []
         }
       })
     })
@@ -65,7 +66,7 @@ class App extends Component {
         </tr>
       )
     })
-    /*let productTable = this.state.data.products.map(product => {
+    let productTable = this.state.data.products.map(product => {
       return (
         <tr>
           <td>{ product.id }</td>
@@ -75,7 +76,7 @@ class App extends Component {
           <td>{ product.paymentId }</td>
         </tr>
       )
-    })*/
+    })
     /*let paymentTable = this.state.data.payments.map(payment => {
       return (
         <tr>

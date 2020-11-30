@@ -16,31 +16,10 @@ class App extends Component {
       payments: []
     }
   }
-  getCustomers = (url) => {
+  getRecords = (url, collection) => {
     axios.get(url).then(response => {
       let data = this.state.data
-      data.customers = response.data
-      this.setState({ data })
-    })
-  }
-  getProducts = (url) => {
-    axios.get(url).then(response => {
-      let data = this.state.data
-      data.products = response.data
-      this.setState({ data })
-    })
-  }
-  getOrders = (url) => {
-    axios.get(url).then(response => {
-      let data = this.state.data
-      data.orders = response.data
-      this.setState({ data })
-    })
-  }
-  getPayments = (url) => {
-    axios.get(url).then(response => {
-      let data = this.state.data
-      data.payments = response.data
+      data[collection] = response.data
       this.setState({ data })
     })
   }
@@ -85,10 +64,10 @@ class App extends Component {
     })*/
     return (
       <div className="App">
-        <button onClick={ () => this.getCustomers(this.state.urls.customers) }>Customers</button>
-        <button onClick={ () => this.getProducts(this.state.urls.products) }>Products</button>
-        <button onClick={ () => this.getPayments(this.state.urls.payments) }>Payments</button>
-        <button onClick={ () => this.getOrders(this.state.urls.orders) }>Orders</button>
+        <button onClick={ () => this.getRecords(this.state.urls.customers, 'customers') }>Customers</button>
+        <button onClick={ () => this.getRecords(this.state.urls.products, 'products') }>Products</button>
+        <button onClick={ () => this.getRecords(this.state.urls.payments, 'payments') }>Payments</button>
+        <button onClick={ () => this.getRecords(this.state.urls.orders, 'orders') }>Orders</button>
         <br/>
         <table id="customerTable">
           <thead>

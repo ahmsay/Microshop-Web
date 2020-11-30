@@ -77,6 +77,8 @@ class App extends Component {
         <button onClick={ () => this.getRecords(this.state.payments) }>Payments</button>
         <button onClick={ () => this.getRecords(this.state.orders) }>Orders</button>
         <br/>
+
+        <h3>Customers</h3>
         <table id="customerTable">
           <thead>
             <tr>
@@ -88,6 +90,8 @@ class App extends Component {
             { customerTable }
           </tbody>
         </table>
+
+        <h3>Products</h3>
         <table id="productTable">
           <thead>
             <tr>
@@ -102,6 +106,8 @@ class App extends Component {
             { productTable }
           </tbody>
         </table>
+
+        <h3>Payments</h3>
         <table id="paymentTable">
           <thead>
             <tr>
@@ -114,6 +120,8 @@ class App extends Component {
             { paymentTable }
           </tbody>
         </table>
+
+        <h3>Orders</h3>
         <table id="orderTable">
           <thead>
             <tr>

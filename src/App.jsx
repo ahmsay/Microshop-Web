@@ -3,17 +3,21 @@ import axios from 'axios'
 
 class App extends Component {
   state = {
-    urls: {
-      customers: 'http://localhost:8081/customers',
-      products: 'http://localhost:8082/products',
-      orders: 'http://localhost:8083/orders',
-      payments: 'http://localhost:8084/payments'
+    customers: {
+      url: 'http://localhost:8081/customers',
+      data: []
     },
-    data: {
-      customers: [],
-      products: [],
-      orders: [],
-      payments: []
+    products: {
+      url: 'http://localhost:8081/customers',
+      data: []
+    },
+    orders: {
+      url: 'http://localhost:8083/orders',
+      data: []
+    },
+    payments: {
+      url: 'http://localhost:8084/payments',
+      data: []
     }
   }
   getRecords = (url, collection) => {
@@ -24,7 +28,7 @@ class App extends Component {
     })
   }
   render() {
-    let customerTable = this.state.data.customers.map(customer => {
+    let customerTable = this.state.customers.data.map(customer => {
       return (
         <tr>
           <td>{ customer.id }</td>
@@ -32,7 +36,7 @@ class App extends Component {
         </tr>
       )
     })
-    let productTable = this.state.data.products.map(product => {
+    let productTable = this.state.products.data.map(product => {
       return (
         <tr>
           <td>{ product.id }</td>
@@ -43,7 +47,7 @@ class App extends Component {
         </tr>
       )
     })
-    let paymentTable = this.state.data.payments.map(payment => {
+    let paymentTable = this.state.payments.data.map(payment => {
       return (
         <tr>
           <td>{ payment.id }</td>
@@ -52,7 +56,7 @@ class App extends Component {
         </tr>
       )
     })
-    let orderTable = this.state.data.orders.map(order => {
+    let orderTable = this.state.orders.data.map(order => {
       return (
         <tr>
           <td>{ order.id }</td>
@@ -64,10 +68,10 @@ class App extends Component {
     })
     return (
       <div className="App">
-        <button onClick={ () => this.getRecords(this.state.urls.customers, 'customers') }>Customers</button>
-        <button onClick={ () => this.getRecords(this.state.urls.products, 'products') }>Products</button>
-        <button onClick={ () => this.getRecords(this.state.urls.payments, 'payments') }>Payments</button>
-        <button onClick={ () => this.getRecords(this.state.urls.orders, 'orders') }>Orders</button>
+        <button onClick={ () => this.getRecords(this.state.customers.url, 'customers') }>Customers</button>
+        <button onClick={ () => this.getRecords(this.state.products.url, 'products') }>Products</button>
+        <button onClick={ () => this.getRecords(this.state.payments.url, 'payments') }>Payments</button>
+        <button onClick={ () => this.getRecords(this.state.orders.url, 'orders') }>Orders</button>
         <br/>
         <table id="customerTable">
           <thead>

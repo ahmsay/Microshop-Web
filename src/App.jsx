@@ -34,7 +34,7 @@ class App extends Component {
   render() {
     let customerTable = this.state.customers.data.map(customer => {
       return (
-        <tr>
+        <tr key={ customer.id }>
           <td>{ customer.id }</td>
           <td>{ customer.name }</td>
         </tr>
@@ -42,7 +42,7 @@ class App extends Component {
     })
     let productTable = this.state.products.data.map(product => {
       return (
-        <tr>
+        <tr key={ product.id }>
           <td>{ product.id }</td>
           <td>{ product.name }</td>
           <td>{ product.price }</td>
@@ -53,7 +53,7 @@ class App extends Component {
     })
     let paymentTable = this.state.payments.data.map(payment => {
       return (
-        <tr>
+        <tr key={ payment.id }>
           <td>{ payment.id }</td>
           <td>{ payment.totalCharge }</td>
           <td>{ payment.customerId }</td>
@@ -62,7 +62,7 @@ class App extends Component {
     })
     let orderTable = this.state.orders.data.map(order => {
       return (
-        <tr>
+        <tr key={ order.id }>
           <td>{ order.id }</td>
           <td>{ order.status }</td>
           <td>{ order.customerId }</td>

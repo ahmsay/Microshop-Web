@@ -24,33 +24,24 @@ class App extends Component {
     })
   }
   getProducts = (url) => {
-    axios.get(url)
-    .then(response => {
-      this.setState({
-        data: {
-          products: response.data
-        }
-      })
+    axios.get(url).then(response => {
+      let data = this.state.data
+      data.products = response.data
+      this.setState({ data })
     })
   }
   getOrders = (url) => {
-    axios.get(url)
-    .then(response => {
-      this.setState({
-        data: {
-          orders: response.data
-        }
-      })
+    axios.get(url).then(response => {
+      let data = this.state.data
+      data.orders = response.data
+      this.setState({ data })
     })
   }
   getPayments = (url) => {
-    axios.get(url)
-    .then(response => {
-      this.setState({
-        data: {
-          payments: response.data
-        }
-      })
+    axios.get(url).then(response => {
+      let data = this.state.data
+      data.payments = response.data
+      this.setState({ data })
     })
   }
   render() {

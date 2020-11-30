@@ -52,7 +52,7 @@ class App extends Component {
         </tr>
       )
     })
-    let orderTable = this.state.data.customers.map(order => {
+    let orderTable = this.state.data.orders.map(order => {
       return (
         <tr>
           <td>{ order.id }</td>

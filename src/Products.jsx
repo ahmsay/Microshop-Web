@@ -16,6 +16,11 @@ class Products extends Component {
       this.setState({ col })
     })
   }
+  render() {
+    return (
+      <div>products</div>
+    )
+  }
 }
 
 export default Products

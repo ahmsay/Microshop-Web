@@ -1,5 +1,9 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import Customers from './Customers'
+import Products from './Products'
+import Payments from './Payments'
+import Orders from './Orders'
 
 class App extends Component {
   state = {
@@ -72,6 +76,10 @@ class App extends Component {
     })
     return (
       <div className="App">
+        <Customers/>
+        <Products/>
+        <Payments/>
+        <Orders/>
         <button onClick={ () => this.getRecords(this.state.customers) }>Customers</button>
         <button onClick={ () => this.getRecords(this.state.products) }>Products</button>
         <button onClick={ () => this.getRecords(this.state.payments) }>Payments</button>

@@ -16,6 +16,11 @@ class Payments extends Component {
       this.setState({ col })
     })
   }
+  render() {
+    return (
+      <div>payments</div>
+    )
+  }
 }
 
 export default Payments

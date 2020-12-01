@@ -16,6 +16,11 @@ class Customers extends Component {
       this.setState({ col })
     })
   }
+  render() {
+    return (
+      <div>customers</div>
+    )
+  }
 }
 
 export default Customers

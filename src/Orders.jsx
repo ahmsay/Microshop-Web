@@ -16,6 +16,11 @@ class Orders extends Component {
       this.setState({ col })
     })
   }
+  render() {
+    return (
+      <div>orders</div>
+    )
+  }
 }
 
 export default Orders

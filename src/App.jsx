@@ -38,15 +38,14 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Customers/>
-        <Products/>
-        <Payments/>
-        <Orders/>
         <button onClick={ () => this.getRecords(this.state.customers) }>Customers</button>
         <button onClick={ () => this.getRecords(this.state.products) }>Products</button>
         <button onClick={ () => this.getRecords(this.state.payments) }>Payments</button>
         <button onClick={ () => this.getRecords(this.state.orders) }>Orders</button>
-        <br/>
+        <Customers/>
+        <Products/>
+        <Payments/>
+        <Orders/>
       </div>
     )
   }

@@ -37,7 +37,7 @@ class App extends Component {
   }
   render() {
     return (
-      <div className="App">
+      <div style={{ margin: 10 }}>
         <button onClick={ () => this.getRecords(this.state.customers) }>Customers</button>
         <button onClick={ () => this.getRecords(this.state.products) }>Products</button>
         <button onClick={ () => this.getRecords(this.state.payments) }>Payments</button>

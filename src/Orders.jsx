@@ -2,13 +2,6 @@ import React, { Component } from 'react'
 import axios from 'axios'
 
 class Orders extends Component {
-  state = {
-    orders: {
-      name: 'orders',
-      url: 'http://localhost:8083/orders',
-      data: []
-    }
-  }
   getRecords = (collection) => {
     axios.get(collection.url).then(response => {
       let col = this.state[collection.name]
@@ -17,7 +10,8 @@ class Orders extends Component {
     })
   }
   render() {
-    let orderTable = this.state.orders.data.map(order => {
+    let { data } = this.props
+    let orderTable = data.map(order => {
       return (
         <tr key={ order.id }>
           <td>{ order.id }</td>

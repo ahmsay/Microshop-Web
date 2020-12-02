@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 
 class Orders extends Component {
   render() {
-    let { data } = this.props
-    let orderTable = data.map(order => {
+    let { orderList } = this.props
+    let orderTable = orderList.map(order => {
       return (
         <tr key={ order.id }>
           <td>{ order.id }</td>

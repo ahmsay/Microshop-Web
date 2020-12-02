@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 
 class Customers extends Component {
   render() {
-    let { data } = this.props
-    let customerTable = data.map(customer => {
+    let { customerList } = this.props
+    let customerTable = customerList.map(customer => {
       return (
         <tr key={ customer.id }>
           <td>{ customer.id }</td>

@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 
 class Payments extends Component {
   render() {
-    let { data } = this.props
-    let paymentTable = data.map(payment => {
+    let { paymentList } = this.props
+    let paymentTable = paymentList.map(payment => {
       return (
         <tr key={ payment.id }>
           <td>{ payment.id }</td>

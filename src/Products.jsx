@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 
 class Products extends Component {
   render() {
-    let { data } = this.props
-    let productTable = data.map(product => {
+    let { productList } = this.props
+    let productTable = productList.map(product => {
       return (
         <tr key={ product.id }>
           <td>{ product.id }</td>

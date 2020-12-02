@@ -1,14 +1,6 @@
 import React, { Component } from 'react'
-import axios from 'axios'
 
 class Orders extends Component {
-  getRecords = (collection) => {
-    axios.get(collection.url).then(response => {
-      let col = this.state[collection.name]
-      col.data = response.data
-      this.setState({ col })
-    })
-  }
   render() {
     let { data } = this.props
     let orderTable = data.map(order => {

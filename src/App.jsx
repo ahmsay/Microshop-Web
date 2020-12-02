@@ -30,14 +30,14 @@ class App extends Component {
   }
   getRecords = (collection) => {
     axios.get(collection.url).then(response => {
-      let col = this.state[collection.name]
-      col.data = response.data
-      this.setState({ col })
+      let newCollection = this.state[collection.name]
+      newCollection.data = response.data
+      this.setState({ newCollection })
     })
   }
   render() {
     return (
-      <div style={{ margin: 10 }}>
+      <div style={{ margin: 10, color: '#ff0000' }}>
         <button onClick={ () => this.getRecords(this.state.customers) }>Customers</button>
         <button onClick={ () => this.getRecords(this.state.products) }>Products</button>
         <button onClick={ () => this.getRecords(this.state.payments) }>Payments</button>

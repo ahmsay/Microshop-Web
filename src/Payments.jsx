@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 class Payments extends Component {
   render() {
     let { paymentList } = this.props
-    let paymentTable = paymentList.map(payment => {
+    let tableData = paymentList.map(payment => {
       return (
         <tr key={ payment.id }>
           <td>{ payment.id }</td>
@@ -12,7 +12,7 @@ class Payments extends Component {
         </tr>
       )
     })
-    return (
+    let table = (
       <div>
         <h3>Payments</h3>
         <table id="paymentTable">
@@ -24,9 +24,14 @@ class Payments extends Component {
             </tr>
           </thead>
           <tbody>
-            { paymentTable }
+            { tableData }
           </tbody>
         </table>
+      </div>
+    )
+    return (
+      <div>
+        { tableData.length !== 0 ? table : null }
       </div>
     )
   }

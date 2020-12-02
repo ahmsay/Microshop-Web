@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 class Products extends Component {
   render() {
     let { productList } = this.props
-    let productTable = productList.map(product => {
+    let tableData = productList.map(product => {
       return (
         <tr key={ product.id }>
           <td>{ product.id }</td>
@@ -14,7 +14,7 @@ class Products extends Component {
         </tr>
       )
     })
-    return (
+    let table = (
       <div>
         <h3>Products</h3>
         <table id="productTable">
@@ -28,9 +28,14 @@ class Products extends Component {
             </tr>
           </thead>
           <tbody>
-            { productTable }
+            { tableData }
           </tbody>
         </table>
+      </div>
+    )
+    return (
+      <div>
+        { tableData.length !== 0 ? table : null }
       </div>
     )
   }

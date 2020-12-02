@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 class Orders extends Component {
   render() {
     let { orderList } = this.props
-    let orderTable = orderList.map(order => {
+    let tableData = orderList.map(order => {
       return (
         <tr key={ order.id }>
           <td>{ order.id }</td>
@@ -13,7 +13,7 @@ class Orders extends Component {
         </tr>
       )
     })
-    return (
+    let table = (
       <div>
         <h3>Orders</h3>
         <table id="orderTable">
@@ -26,9 +26,14 @@ class Orders extends Component {
             </tr>
           </thead>
           <tbody>
-            { orderTable }
+            { tableData }
           </tbody>
         </table>
+      </div>
+    )
+    return (
+      <div>
+        { tableData.length !== 0 ? table : null }
       </div>
     )
   }

@@ -42,10 +42,10 @@ class App extends Component {
         <button onClick={ () => this.getRecords(this.state.products) }>Products</button>
         <button onClick={ () => this.getRecords(this.state.payments) }>Payments</button>
         <button onClick={ () => this.getRecords(this.state.orders) }>Orders</button>
-        <Customers/>
-        <Products/>
-        <Payments/>
-        <Orders/>
+        <Customers data={ this.state.customers.data }/>
+        <Products data={ this.state.customers.data }/>
+        <Payments data={ this.state.customers.data }/>
+        <Orders data={ this.state.customers.data }/>
       </div>
     )
   }

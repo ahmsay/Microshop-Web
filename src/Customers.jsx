@@ -17,6 +17,10 @@ class Customers extends Component {
     })
   }
   render() {
+    let { data } = this.props
+    let stateData = this.state.customers
+    stateData.data = data
+    this.setState({ stateData })
     let customerTable = this.state.customers.data.map(customer => {
       return (
         <tr key={ customer.id }>

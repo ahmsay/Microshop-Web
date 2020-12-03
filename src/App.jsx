@@ -37,7 +37,7 @@ class App extends Component {
   }
   render() {
     return (
-      <div style={{ padding: 10, backgroundColor: '#5c9934', color: '#ffffff' }}>
+      <div style={{ padding: 10, color: '#ffffff' }}>
         <button onClick={ () => this.getRecords(this.state.customers) }>Customers</button>
         <button onClick={ () => this.getRecords(this.state.products) }>Products</button>
         <button onClick={ () => this.getRecords(this.state.payments) }>Payments</button>

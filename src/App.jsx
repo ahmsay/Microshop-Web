@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import Customers from './Customers'
-import Products from './Products'
-import Payments from './Payments'
-import Orders from './Orders'
+import Customers from './customer/CustomerList'
+import Products from './product/ProductList'
+import Payments from './payment/PaymentList'
+import Orders from './order/OrderList'
 
 class App extends Component {
   state = {

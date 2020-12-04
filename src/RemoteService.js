@@ -38,4 +38,4 @@ const RemoteService = {
   }
 }
 
-export default RemoteService
+export { RemoteService }

@@ -3,7 +3,7 @@ import CustomerList from './customer/CustomerList'
 import ProductList from './product/ProductList'
 import PaymentList from './payment/PaymentList'
 import OrderList from './order/OrderList'
-import RemoteService from './RemoteService'
+import { RemoteService } from './RemoteService'
 
 class App extends Component {
   state = {

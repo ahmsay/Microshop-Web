@@ -12,7 +12,7 @@ class PaymentList extends Component {
     let tableData = paymentList.map(payment => {
       return (
         <tr key={ payment.id }>
-          <td>{ payment.id }</td>
+          <td onClick={ () => this.getRecord(payment.id) }>{ payment.id }</td>
           <td>{ payment.totalCharge }</td>
           <td>{ payment.customerId }</td>
         </tr>

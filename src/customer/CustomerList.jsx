@@ -12,7 +12,7 @@ class CustomerList extends Component {
     let tableData = customerList.map(customer => {
       return (
         <tr key={ customer.id }>
-          <td>{ customer.id }</td>
+          <td onClick={ () => this.getRecord(customer.id) }>{ customer.id }</td>
           <td>{ customer.name }</td>
         </tr>
       )

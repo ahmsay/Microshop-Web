@@ -12,7 +12,7 @@ class ProductList extends Component {
     let tableData = productList.map(product => {
       return (
         <tr key={ product.id }>
-          <td>{ product.id }</td>
+          <td onClick={ () => this.getRecord(product.id) }>{ product.id }</td>
           <td>{ product.name }</td>
           <td>{ product.price }</td>
           <td>{ product.category }</td>

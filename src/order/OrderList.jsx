@@ -12,7 +12,7 @@ class OrderList extends Component {
     let tableData = orderList.map(order => {
       return (
         <tr key={ order.id }>
-          <td>{ order.id }</td>
+          <td onClick={ () => this.getRecord(order.id) }>{ order.id }</td>
           <td>{ order.status }</td>
           <td>{ order.customerId }</td>
           <td>{ order.paymentId }</td>

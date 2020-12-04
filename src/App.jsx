@@ -36,8 +36,8 @@ class App extends Component {
       this.setState({ newCollection })
     })
   }
-  test = (param) => {
-    RemoteService.doTheThing(param)
+  test = () => {
+    RemoteService.doTheThing()
   }
   render() {
     return (
@@ -46,7 +46,7 @@ class App extends Component {
         <button onClick={ () => this.getRecords(this.state.products) }>Products</button>
         <button onClick={ () => this.getRecords(this.state.payments) }>Payments</button>
         <button onClick={ () => this.getRecords(this.state.orders) }>Orders</button>
-        <button onClick={ () => this.test('hello') }>Do the thing</button>
+        <button onClick={ () => this.test() }>Do the thing</button>
         <CustomerList customerList={ this.state.customers.data }/>
         <ProductList productList={ this.state.products.data }/>
         <PaymentList paymentList={ this.state.payments.data }/>

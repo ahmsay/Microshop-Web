@@ -1,11 +1,10 @@
-function privateFunction() {
-  console.log('private func is invoked')
-}
+import axios from 'axios'
 
 const RemoteService = {
-  doTheThing(param) {
-    privateFunction()
-    console.log(param)
+  doTheThing() {
+    axios.get('http://localhost:8081/customers/1').then(response => {
+      console.log(response.data)
+    })
   }
 }
 

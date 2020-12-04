@@ -4,6 +4,7 @@ import CustomerList from './customer/CustomerList'
 import ProductList from './product/ProductList'
 import PaymentList from './payment/PaymentList'
 import OrderList from './order/OrderList'
+import RemoteService from './RemoteService'
 
 class App extends Component {
   state = {
@@ -35,6 +36,10 @@ class App extends Component {
       this.setState({ newCollection })
     })
   }
+  test = (param) => {
+    let rm = new RemoteService('hello')
+    rm.doTheThing(param)
+  }
   render() {
     return (
       <div style={{ padding: 10, color: '#ffffff' }}>
@@ -42,6 +47,7 @@ class App extends Component {
         <button onClick={ () => this.getRecords(this.state.products) }>Products</button>
         <button onClick={ () => this.getRecords(this.state.payments) }>Payments</button>
         <button onClick={ () => this.getRecords(this.state.orders) }>Orders</button>
+        <button onClick={ () => this.test(1) }>Do the thing</button>
         <CustomerList customerList={ this.state.customers.data }/>
         <ProductList productList={ this.state.products.data }/>
         <PaymentList paymentList={ this.state.payments.data }/>

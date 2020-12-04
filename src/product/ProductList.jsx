@@ -1,6 +1,12 @@
 import React, { Component } from 'react'
+import axios from 'axios'
 
 class ProductList extends Component {
+  getRecord = (id) => {
+    axios.get('http://localhost:8082/products/' + id).then(response => {
+      console.log(response.data)
+    })
+  }
   render() {
     let { productList } = this.props
     let tableData = productList.map(product => {

@@ -7,6 +7,27 @@ const RemoteService = {
         resolve(response.data)
       })
     })
+  },
+  getProducts() {
+    return new Promise(resolve => {
+      axios.get('http://localhost:8082/products').then(response => {
+        resolve(response.data)
+      })
+    })
+  },
+  getPayments() {
+    return new Promise(resolve => {
+      axios.get('http://localhost:8084/payments').then(response => {
+        resolve(response.data)
+      })
+    })
+  },
+  getOrders() {
+    return new Promise(resolve => {
+      axios.get('http://localhost:8083/orders').then(response => {
+        resolve(response.data)
+      })
+    })
   }
 }
 

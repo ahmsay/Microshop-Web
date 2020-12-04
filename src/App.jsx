@@ -7,43 +7,30 @@ import RemoteService from './RemoteService'
 
 class App extends Component {
   state = {
-    customers: {
-      name: 'customers',
-      url: 'http://localhost:8081/customers',
-      data: []
-    },
-    products: {
-      name: 'products',
-      url: 'http://localhost:8082/products',
-      data: []
-    },
-    orders: {
-      name: 'orders',
-      url: 'http://localhost:8083/orders',
-      data: []
-    },
-    payments: {
-      name: 'payments',
-      url: 'http://localhost:8084/payments',
-      data: []
-    }
+    customers: [],
+    products: [],
+    payments: [],
+    orders: []
   }
   getCustomers = () => {
-    RemoteService.getCustomers().then(data => {
-      let collection = this.state.customers
-      collection.data = data
-      this.setState({ collection })
+    RemoteService.getCustomers().then(customers => {
+      this.setState({ customers })
     })
-    console.log(this.state)
   }
   getProducts = () => {
-
+    RemoteService.getProducts().then(products => {
+      this.setState({ products })
+    })
   }
   getPayments = () => {
-    
+    RemoteService.getPayments().then(payments => {
+      this.setState({ payments })
+    })
   }
   getOrders = () => {
-    
+    RemoteService.getOrders().then(orders => {
+      this.setState({ orders })
+    })
   }
   render() {
     return (
@@ -52,10 +39,10 @@ class App extends Component {
         <button onClick={ () => this.getProducts() }>Products</button>
         <button onClick={ () => this.getPayments() }>Payments</button>
         <button onClick={ () => this.getOrders() }>Orders</button>
-        <CustomerList customerList={ this.state.customers.data }/>
-        <ProductList productList={ this.state.products.data }/>
-        <PaymentList paymentList={ this.state.payments.data }/>
-        <OrderList orderList={ this.state.orders.data }/>
+        <CustomerList customerList={ this.state.customers }/>
+        <ProductList productList={ this.state.products }/>
+        <PaymentList paymentList={ this.state.payments }/>
+        <OrderList orderList={ this.state.orders }/>
       </div>
     )
   }

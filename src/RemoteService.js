@@ -1,9 +1,11 @@
 import axios from 'axios'
 
 const RemoteService = {
-  doTheThing() {
-    axios.get('http://localhost:8081/customers/1').then(response => {
-      console.log(response.data)
+  getCustomers() {
+    return new Promise(resolve => {
+      axios.get('http://localhost:8081/customers').then(response => {
+        resolve(response.data)
+      })
     })
   }
 }

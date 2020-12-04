@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import axios from 'axios'
 import CustomerList from './customer/CustomerList'
 import ProductList from './product/ProductList'
 import PaymentList from './payment/PaymentList'
@@ -29,24 +28,30 @@ class App extends Component {
       data: []
     }
   }
-  getRecords = (collection) => {
-    axios.get(collection.url).then(response => {
-      let newCollection = this.state[collection.name]
-      newCollection.data = response.data
-      this.setState({ newCollection })
+  getCustomers = () => {
+    RemoteService.getCustomers().then(data => {
+      let collection = this.state.customers
+      collection.data = data
+      this.setState({ collection })
     })
+    console.log(this.state)
   }
-  test = () => {
-    RemoteService.doTheThing()
+  getProducts = () => {
+
+  }
+  getPayments = () => {
+    
+  }
+  getOrders = () => {
+    
   }
   render() {
     return (
       <div style={{ padding: 10, color: '#ffffff' }}>
-        <button onClick={ () => this.getRecords(this.state.customers) }>Customers</button>
-        <button onClick={ () => this.getRecords(this.state.products) }>Products</button>
-        <button onClick={ () => this.getRecords(this.state.payments) }>Payments</button>
-        <button onClick={ () => this.getRecords(this.state.orders) }>Orders</button>
-        <button onClick={ () => this.test() }>Do the thing</button>
+        <button onClick={ () => this.getCustomers() }>Customers</button>
+        <button onClick={ () => this.getProducts() }>Products</button>
+        <button onClick={ () => this.getPayments() }>Payments</button>
+        <button onClick={ () => this.getOrders() }>Orders</button>
         <CustomerList customerList={ this.state.customers.data }/>
         <ProductList productList={ this.state.products.data }/>
         <PaymentList paymentList={ this.state.payments.data }/>

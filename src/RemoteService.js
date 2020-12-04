@@ -1,11 +1,11 @@
-class RemoteService {
+function privateFunction() {
+  console.log('private func is invoked')
+}
 
-  constructor(a) {
-    this.a = a;
-  }
-
+const RemoteService = {
   doTheThing(param) {
-    console.log(param, this.a)
+    privateFunction()
+    console.log(param)
   }
 }
 

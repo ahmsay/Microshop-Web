@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class Customers extends Component {
+class CustomerList extends Component {
   render() {
     let { customerList } = this.props
     let tableData = customerList.map(customer => {
@@ -35,4 +35,4 @@ class Customers extends Component {
   }
 }
 
-export default Customers
+export default CustomerList

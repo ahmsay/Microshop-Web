@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import Customers from './customer/CustomerList'
-import Products from './product/ProductList'
-import Payments from './payment/PaymentList'
-import Orders from './order/OrderList'
+import CustomerList from './customer/CustomerList'
+import ProductList from './product/ProductList'
+import PaymentList from './payment/PaymentList'
+import OrderList from './order/OrderList'
 
 class App extends Component {
   state = {
@@ -42,10 +42,10 @@ class App extends Component {
         <button onClick={ () => this.getRecords(this.state.products) }>Products</button>
         <button onClick={ () => this.getRecords(this.state.payments) }>Payments</button>
         <button onClick={ () => this.getRecords(this.state.orders) }>Orders</button>
-        <Customers customerList={ this.state.customers.data }/>
-        <Products productList={ this.state.products.data }/>
-        <Payments paymentList={ this.state.payments.data }/>
-        <Orders orderList={ this.state.orders.data }/>
+        <CustomerList customerList={ this.state.customers.data }/>
+        <ProductList productList={ this.state.products.data }/>
+        <PaymentList paymentList={ this.state.payments.data }/>
+        <OrderList orderList={ this.state.orders.data }/>
       </div>
     )
   }

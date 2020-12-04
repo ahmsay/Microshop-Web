@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class Orders extends Component {
+class OrderList extends Component {
   render() {
     let { orderList } = this.props
     let tableData = orderList.map(order => {
@@ -39,4 +39,4 @@ class Orders extends Component {
   }
 }
 
-export default Orders
+export default OrderList

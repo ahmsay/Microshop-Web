@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class Payments extends Component {
+class PaymentList extends Component {
   render() {
     let { paymentList } = this.props
     let tableData = paymentList.map(payment => {
@@ -37,4 +37,4 @@ class Payments extends Component {
   }
 }
 
-export default Payments
+export default PaymentList

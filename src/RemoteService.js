@@ -7,28 +7,37 @@ const urls = {
   orderService: 'http://localhost:8083'
 }
 
-const RemoteService = {
+const AccountRemoteService = {
   getCustomers() {
     return new Promise(resolve => {
       axios.get(urls.accountService + '/customers').then(response => {
         resolve(response.data)
       })
     })
-  },
+  }
+}
+
+const InventoryRemoteService = {
   getProducts() {
     return new Promise(resolve => {
       axios.get(urls.inventoryService + '/products').then(response => {
         resolve(response.data)
       })
     })
-  },
+  }
+}
+
+const PaymentRemoteService = {
   getPayments() {
     return new Promise(resolve => {
       axios.get(urls.paymentService + '/payments').then(response => {
         resolve(response.data)
       })
     })
-  },
+  }
+}
+
+const OrderRemoteService = {
   getOrders() {
     return new Promise(resolve => {
       axios.get(urls.orderService + '/orders').then(response => {
@@ -38,4 +47,4 @@ const RemoteService = {
   }
 }
 
-export { RemoteService }
+export { AccountRemoteService, InventoryRemoteService, PaymentRemoteService, OrderRemoteService }

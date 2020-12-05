@@ -34,7 +34,7 @@ class App extends Component {
   }
   render() {
     return (
-      <div style={{ padding: 10, color: '#ffffff' }}>
+      <div>
         <button onClick={ () => this.getCustomers() }>Customers</button>
         <button onClick={ () => this.getProducts() }>Products</button>
         <button onClick={ () => this.getPayments() }>Payments</button>

@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import { PaymentRemoteService } from '../RemoteService'
 
 class PaymentList extends Component {
   getRecord = (id) => {
-    axios.get('http://localhost:8084/payments/' + id).then(response => {
-      console.log(response.data)
+    PaymentRemoteService.getPaymentById(id).then(payment => {
+      console.log(payment)
     })
   }
   render() {

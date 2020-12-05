@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import { AccountRemoteService } from '../RemoteService'
 
 class CustomerList extends Component {
   getRecord = (id) => {
-    axios.get('http://localhost:8081/customers/' + id).then(response => {
-      console.log(response.data)
+    AccountRemoteService.getCustomerById(id).then(customer => {
+      console.log(customer)
     })
   }
   render() {

@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import { InventoryRemoteService } from '../RemoteService'
 
 class ProductList extends Component {
   getRecord = (id) => {
-    axios.get('http://localhost:8082/products/' + id).then(response => {
-      console.log(response.data)
+    InventoryRemoteService.getProductById(id).then(product => {
+      console.log(product)
     })
   }
   render() {

@@ -4,6 +4,18 @@ import ProductList from './product/ProductList'
 import PaymentList from './payment/PaymentList'
 import OrderList from './order/OrderList'
 import { AccountRemoteService, InventoryRemoteService, PaymentRemoteService, OrderRemoteService } from './RemoteService'
+import { Container, Button } from '@material-ui/core'
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
+
+const primary = '#1ea891'
+const secondary = '#ffffff'
+
+const theme = createMuiTheme({
+  button: {
+    backgroundColor: primary,
+    color: secondary
+  }
+})
 
 class App extends Component {
   state = {
@@ -34,16 +46,18 @@ class App extends Component {
   }
   render() {
     return (
-      <div>
-        <button onClick={ () => this.getCustomers() }>Customers</button>
-        <button onClick={ () => this.getProducts() }>Products</button>
-        <button onClick={ () => this.getPayments() }>Payments</button>
-        <button onClick={ () => this.getOrders() }>Orders</button>
-        <CustomerList customerList={ this.state.customers }/>
-        <ProductList productList={ this.state.products }/>
-        <PaymentList paymentList={ this.state.payments }/>
-        <OrderList orderList={ this.state.orders }/>
-      </div>
+      <MuiThemeProvider theme={ theme }>
+        <Container>
+          <Button onClick={ () => this.getCustomers() }>Customers</Button>
+          <Button onClick={ () => this.getProducts() }>Products</Button>
+          <Button onClick={ () => this.getPayments() }>Payments</Button>
+          <Button onClick={ () => this.getOrders() }>Orders</Button>
+          <CustomerList customerList={ this.state.customers }/>
+          <ProductList productList={ this.state.products }/>
+          <PaymentList paymentList={ this.state.payments }/>
+          <OrderList orderList={ this.state.orders }/>
+        </Container>
+      </MuiThemeProvider>
     )
   }
 }

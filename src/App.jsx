@@ -3,7 +3,7 @@ import CustomerList from './customer/CustomerList'
 import ProductList from './product/ProductList'
 import PaymentList from './payment/PaymentList'
 import OrderList from './order/OrderList'
-import { RemoteService } from './RemoteService'
+import { AccountRemoteService, InventoryRemoteService, PaymentRemoteService, OrderRemoteService } from './RemoteService'
 
 class App extends Component {
   state = {
@@ -13,22 +13,22 @@ class App extends Component {
     orders: []
   }
   getCustomers = () => {
-    RemoteService.getCustomers().then(customers => {
+    AccountRemoteService.getCustomers().then(customers => {
       this.setState({ customers })
     })
   }
   getProducts = () => {
-    RemoteService.getProducts().then(products => {
+    InventoryRemoteService.getProducts().then(products => {
       this.setState({ products })
     })
   }
   getPayments = () => {
-    RemoteService.getPayments().then(payments => {
+    PaymentRemoteService.getPayments().then(payments => {
       this.setState({ payments })
     })
   }
   getOrders = () => {
-    RemoteService.getOrders().then(orders => {
+    OrderRemoteService.getOrders().then(orders => {
       this.setState({ orders })
     })
   }

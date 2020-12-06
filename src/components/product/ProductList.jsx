@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { InventoryRemoteService } from '../RemoteService'
+import { InventoryRemoteService } from '../../RemoteService'
 
 class ProductList extends Component {
   state = {

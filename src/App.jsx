@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Dashboard from './Dashboard'
 import CustomerList from './customer/CustomerList'
 import ProductList from './product/ProductList'
 import PaymentList from './payment/PaymentList'
@@ -6,6 +7,7 @@ import OrderList from './order/OrderList'
 import { AccountRemoteService, InventoryRemoteService, PaymentRemoteService, OrderRemoteService } from './RemoteService'
 import { Container, Button } from '@material-ui/core'
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
 const primary = '#1ea891'
 const secondary = '#ffffff'
@@ -46,18 +48,19 @@ class App extends Component {
   }
   render() {
     return (
-      <MuiThemeProvider theme={ theme }>
-        <Container>
-          <Button onClick={ () => this.getCustomers() }>Customers</Button>
-          <Button onClick={ () => this.getProducts() }>Products</Button>
-          <Button onClick={ () => this.getPayments() }>Payments</Button>
-          <Button onClick={ () => this.getOrders() }>Orders</Button>
-          <CustomerList customerList={ this.state.customers }/>
-          <ProductList productList={ this.state.products }/>
-          <PaymentList paymentList={ this.state.payments }/>
-          <OrderList orderList={ this.state.orders }/>
-        </Container>
-      </MuiThemeProvider>
+      <BrowserRouter>
+        <MuiThemeProvider theme={ theme }>
+          <Container>
+            <Switch>
+              <Route exact path='/' component={ Dashboard }/>
+              <Route path='/customers' component={ CustomerList }/>
+              <Route path='/products' component={ ProductList }/>
+              <Route path='/payments' component={ PaymentList }/>
+              <Route path='/orders' component={ OrderList }/>
+            </Switch>
+          </Container>
+        </MuiThemeProvider>
+      </BrowserRouter>
     )
   }
 }

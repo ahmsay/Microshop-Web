@@ -1,4 +1,5 @@
 import React from 'react'
+import Navbar from './components/Navbar'
 import Dashboard from './components/Dashboard'
 import CustomerList from './components/customer/CustomerList'
 import ProductList from './components/product/ProductList'
@@ -23,6 +24,7 @@ const App = () => {
     <MuiThemeProvider theme={ theme }>
       <Container>
         <BrowserRouter>
+          <Navbar/>
           <Switch>
             <Route exact path='/' component={ Dashboard }/>
             <Route path='/customers' component={ CustomerList }/>

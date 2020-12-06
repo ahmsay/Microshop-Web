@@ -2,14 +2,21 @@ import React, { Component } from 'react'
 import { AccountRemoteService } from '../RemoteService'
 
 class CustomerList extends Component {
+  state = {
+    customers: []
+  }
+  componentDidMount() {
+    AccountRemoteService.getCustomers().then(customers => {
+      this.setState({ customers })
+    })
+  }
   getRecord = (id) => {
     AccountRemoteService.getCustomerById(id).then(customer => {
       console.log(customer)
     })
   }
   render() {
-    let { customerList } = this.props
-    let tableData = customerList.map(customer => {
+    let tableData = this.state.customers.map(customer => {
       return (
         <tr key={ customer.id }>
           <td onClick={ () => this.getRecord(customer.id) }>{ customer.id }</td>

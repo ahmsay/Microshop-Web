@@ -2,14 +2,21 @@ import React, { Component } from 'react'
 import { PaymentRemoteService } from '../RemoteService'
 
 class PaymentList extends Component {
+  state = {
+    payments: []
+  }
+  componentDidMount() {
+    PaymentRemoteService.getPayments().then(payments => {
+      this.setState({ payments })
+    })
+  }
   getRecord = (id) => {
     PaymentRemoteService.getPaymentById(id).then(payment => {
       console.log(payment)
     })
   }
   render() {
-    let { paymentList } = this.props
-    let tableData = paymentList.map(payment => {
+    let tableData = this.state.payments.map(payment => {
       return (
         <tr key={ payment.id }>
           <td onClick={ () => this.getRecord(payment.id) }>{ payment.id }</td>

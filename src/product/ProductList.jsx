@@ -2,14 +2,21 @@ import React, { Component } from 'react'
 import { InventoryRemoteService } from '../RemoteService'
 
 class ProductList extends Component {
+  state = {
+    products: []
+  }
+  componentDidMount() {
+    InventoryRemoteService.getProducts().then(products => {
+      this.setState({ products })
+    })
+  }
   getRecord = (id) => {
     InventoryRemoteService.getProductById(id).then(product => {
       console.log(product)
     })
   }
   render() {
-    let { productList } = this.props
-    let tableData = productList.map(product => {
+    let tableData = this.state.products.map(product => {
       return (
         <tr key={ product.id }>
           <td onClick={ () => this.getRecord(product.id) }>{ product.id }</td>

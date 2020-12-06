@@ -2,14 +2,21 @@ import React, { Component } from 'react'
 import { OrderRemoteService } from '../RemoteService'
 
 class OrderList extends Component {
+  state = {
+    orders: []
+  }
+  componentDidMount() {
+    OrderRemoteService.getOrders().then(orders => {
+      this.setState({ orders })
+    })
+  }
   getRecord = (id) => {
     OrderRemoteService.getOrderById(id).then(order => {
       console.log(order)
     })
   }
   render() {
-    let { orderList } = this.props
-    let tableData = orderList.map(order => {
+    let tableData = this.state.orders.map(order => {
       return (
         <tr key={ order.id }>
           <td onClick={ () => this.getRecord(order.id) }>{ order.id }</td>

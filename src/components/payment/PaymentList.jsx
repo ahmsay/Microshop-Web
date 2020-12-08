@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { PaymentRemoteService } from '../../RemoteService'
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@material-ui/core'
 
 class PaymentList extends Component {
   state = {
@@ -18,32 +19,34 @@ class PaymentList extends Component {
   render() {
     let tableData = this.state.payments.map(payment => {
       return (
-        <tr key={ payment.id }>
-          <td onClick={ () => this.getRecord(payment.id) }>{ payment.id }</td>
-          <td>{ payment.totalCharge }</td>
-          <td>{ payment.customerId }</td>
-        </tr>
+        <TableRow key={ payment.id }>
+          <TableCell onClick={ () => this.getRecord(payment.id) } component="th" scope="row">
+            { payment.id }
+          </TableCell>
+          <TableCell align="right">{ payment.totalCharge }</TableCell>
+          <TableCell align="right">{ payment.customerId }</TableCell>
+        </TableRow>
       )
     })
     let table = (
-      <div>
-        <h3>Payments</h3>
-        <table id="paymentTable">
-          <thead>
-            <tr>
-              <th>Id</th>
-              <th>Total Charge</th>
-              <th>Customer Id</th>
-            </tr>
-          </thead>
-          <tbody>
+      <TableContainer component={ Paper }>
+        <Table aria-label="simple table">
+          <TableHead>
+            <TableRow>
+              <TableCell>Id</TableCell>
+              <TableCell align="right">Total Charge</TableCell>
+              <TableCell align="right">Customer Id</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
             { tableData }
-          </tbody>
-        </table>
-      </div>
+          </TableBody>
+        </Table>
+      </TableContainer>
     )
     return (
       <div>
+        <h3>Payments</h3>
         { tableData.length !== 0 ? table : null }
       </div>
     )

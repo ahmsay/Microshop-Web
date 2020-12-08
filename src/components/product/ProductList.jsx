@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { InventoryRemoteService } from '../../RemoteService'
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@material-ui/core'
 
 class ProductList extends Component {
   state = {
@@ -18,36 +19,38 @@ class ProductList extends Component {
   render() {
     let tableData = this.state.products.map(product => {
       return (
-        <tr key={ product.id }>
-          <td onClick={ () => this.getRecord(product.id) }>{ product.id }</td>
-          <td>{ product.name }</td>
-          <td>{ product.price }</td>
-          <td>{ product.category }</td>
-          <td>{ product.paymentId }</td>
-        </tr>
+        <TableRow key={ product.id }>
+          <TableCell onClick={ () => this.getRecord(product.id) } component="th" scope="row">
+            { product.id }
+          </TableCell>
+          <TableCell align="right">{ product.name }</TableCell>
+          <TableCell align="right">{ product.price }</TableCell>
+          <TableCell align="right">{ product.category }</TableCell>
+          <TableCell align="right">{ product.paymentId }</TableCell>
+        </TableRow>
       )
     })
     let table = (
-      <div>
-        <h3>Products</h3>
-        <table id="productTable">
-          <thead>
-            <tr>
-              <th>Id</th>
-              <th>Name</th>
-              <th>Price</th>
-              <th>Category</th>
-              <th>Payment Id</th>
-            </tr>
-          </thead>
-          <tbody>
+      <TableContainer component={ Paper }>
+        <Table aria-label="simple table">
+          <TableHead>
+            <TableRow>
+              <TableCell>Id</TableCell>
+              <TableCell align="right">Name</TableCell>
+              <TableCell align="right">Price</TableCell>
+              <TableCell align="right">Category</TableCell>
+              <TableCell align="right">Payment Id</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
             { tableData }
-          </tbody>
-        </table>
-      </div>
+          </TableBody>
+        </Table>
+      </TableContainer>
     )
     return (
       <div>
+        <h3>Products</h3>
         { tableData.length !== 0 ? table : null }
       </div>
     )

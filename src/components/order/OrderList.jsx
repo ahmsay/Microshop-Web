@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { OrderRemoteService } from '../../RemoteService'
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@material-ui/core'
 
 class OrderList extends Component {
   state = {
@@ -18,34 +19,36 @@ class OrderList extends Component {
   render() {
     let tableData = this.state.orders.map(order => {
       return (
-        <tr key={ order.id }>
-          <td onClick={ () => this.getRecord(order.id) }>{ order.id }</td>
-          <td>{ order.status }</td>
-          <td>{ order.customerId }</td>
-          <td>{ order.paymentId }</td>
-        </tr>
+        <TableRow key={ order.id }>
+          <TableCell onClick={ () => this.getRecord(order.id) } component="th" scope="row">
+            { order.id }
+          </TableCell>
+          <TableCell align="right">{ order.status }</TableCell>
+          <TableCell align="right">{ order.customerId }</TableCell>
+          <TableCell align="right">{ order.paymentId }</TableCell>
+        </TableRow>
       )
     })
     let table = (
-      <div>
-        <h3>Orders</h3>
-        <table id="orderTable">
-          <thead>
-            <tr>
-              <th>Id</th>
-              <th>Status</th>
-              <th>Customer Id</th>
-              <th>Payment Id</th>
-            </tr>
-          </thead>
-          <tbody>
+      <TableContainer component={ Paper }>
+        <Table aria-label="simple table">
+          <TableHead>
+            <TableRow>
+              <TableCell>Id</TableCell>
+              <TableCell align="right">Status</TableCell>
+              <TableCell align="right">Customer Id</TableCell>
+              <TableCell align="right">Payment Id</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
             { tableData }
-          </tbody>
-        </table>
-      </div>
+          </TableBody>
+        </Table>
+      </TableContainer>
     )
     return (
       <div>
+        <h3>Orders</h3>
         { tableData.length !== 0 ? table : null }
       </div>
     )

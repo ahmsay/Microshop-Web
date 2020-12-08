@@ -9,13 +9,14 @@ import { Container } from '@material-ui/core'
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
-const primary = '#1ea891'
-const secondary = '#ffffff'
-
 const theme = createMuiTheme({
-  button: {
-    backgroundColor: primary,
-    color: secondary
+  palette: {
+    primary: {
+      main: '#1ea891'
+    },
+    secondary: {
+      main: '#ffffff'
+    }
   }
 })
 

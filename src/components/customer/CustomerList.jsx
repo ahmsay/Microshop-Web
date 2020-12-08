@@ -19,11 +19,11 @@ class CustomerList extends Component {
   render() {
     let tableData = this.state.customers.map(customer => {
       return (
-        <TableRow key={customer.id}>
-          <TableCell component="th" scope="row">
-            {customer.id}
+        <TableRow key={ customer.id }>
+          <TableCell onClick={ () => this.getRecord(customer.id) } component="th" scope="row">
+            { customer.id }
           </TableCell>
-          <TableCell align="right">{customer.name}</TableCell>
+          <TableCell align="right">{ customer.name }</TableCell>
         </TableRow>
       )
     })

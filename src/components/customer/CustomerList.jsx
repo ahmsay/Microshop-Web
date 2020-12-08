@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { AccountRemoteService } from '../../RemoteService'
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@material-ui/core'
 
 class CustomerList extends Component {
   state = {
@@ -42,7 +43,27 @@ class CustomerList extends Component {
     )
     return (
       <div>
-        { tableData.length !== 0 ? table : null }
+        {/* tableData.length !== 0 ? table : null */}
+        <TableContainer component={Paper}>
+          <Table aria-label="simple table">
+            <TableHead>
+              <TableRow>
+                <TableCell>Id</TableCell>
+                <TableCell align="right">Name</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {this.state.customers.map((customer) => (
+                <TableRow key={customer.id}>
+                  <TableCell component="th" scope="row">
+                    {customer.id}
+                  </TableCell>
+                  <TableCell align="right">{customer.name}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
       </div>
     )
   }

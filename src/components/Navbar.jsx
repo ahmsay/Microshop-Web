@@ -19,7 +19,7 @@ const Navbar = () => {
     )
   })
   return (
-    <AppBar position="static" color="primary">
+    <AppBar position="static" color="secondary">
       <Toolbar>
         <ButtonGroup variant="text">
           { buttons }

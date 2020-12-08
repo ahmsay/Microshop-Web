@@ -20,6 +20,15 @@ const theme = createMuiTheme({
     secondary: {
       main: secondary
     }
+  },
+  table: {
+    backgroundColor: secondary
+  },
+  title: {
+    color: secondary
+  },
+  tableCell: {
+    borderBottomColor: primary
   }
 })
 

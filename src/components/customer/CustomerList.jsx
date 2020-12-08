@@ -1,6 +1,13 @@
 import React, { Component } from 'react'
 import { AccountRemoteService } from '../../RemoteService'
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@material-ui/core'
+import { withStyles } from '@material-ui/core/styles'
+
+const useStyles = (theme) => ({
+  table: theme.table,
+  title: theme.title,
+  tableCell: theme.tableCell
+})
 
 class CustomerList extends Component {
   state = {
@@ -17,23 +24,24 @@ class CustomerList extends Component {
     })
   }
   render() {
+    const { classes } = this.props
     let tableData = this.state.customers.map(customer => {
       return (
         <TableRow key={ customer.id }>
-          <TableCell onClick={ () => this.getRecord(customer.id) } component="th" scope="row">
+          <TableCell className={ classes.tableCell } onClick={ () => this.getRecord(customer.id) } component="th" scope="row">
             { customer.id }
           </TableCell>
-          <TableCell align="right">{ customer.name }</TableCell>
+          <TableCell className={ classes.tableCell } align="right">{ customer.name }</TableCell>
         </TableRow>
       )
     })
     let table = (
-      <TableContainer component={ Paper }>
+      <TableContainer className={ classes.table } component={ Paper }>
         <Table aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell>Id</TableCell>
-              <TableCell align="right">Name</TableCell>
+              <TableCell className={ classes.tableCell }>Id</TableCell>
+              <TableCell className={ classes.tableCell } align="right">Name</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -44,11 +52,11 @@ class CustomerList extends Component {
     )
     return (
       <div>
-        <h3>Customers</h3>
+        <h3 className={ classes.title }>Customers</h3>
         { tableData.length !== 0 ? table : null }
       </div>
     )
   }
 }
 
-export default CustomerList
+export default (withStyles(useStyles)(CustomerList))

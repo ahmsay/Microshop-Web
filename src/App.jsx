@@ -9,13 +9,16 @@ import { Container } from '@material-ui/core'
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
+const primary = '#1d1d1d'
+const secondary = '#1ea891'
+
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: '#1ea891'
+      main: primary
     },
     secondary: {
-      main: '#ffffff'
+      main: secondary
     }
   }
 })

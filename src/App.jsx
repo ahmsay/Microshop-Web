@@ -22,9 +22,9 @@ const theme = createMuiTheme({
 const App = () => {
   return (
     <MuiThemeProvider theme={ theme }>
-      <Container>
-        <BrowserRouter>
-          <Navbar/>
+      <BrowserRouter>
+        <Navbar/>
+        <Container>
           <Switch>
             <Route exact path='/' component={ Dashboard }/>
             <Route path='/customers' component={ CustomerList }/>
@@ -32,8 +32,8 @@ const App = () => {
             <Route path='/payments' component={ PaymentList }/>
             <Route path='/orders' component={ OrderList }/>
           </Switch>
-        </BrowserRouter>
-      </Container>
+        </Container>
+      </BrowserRouter>
     </MuiThemeProvider>
   )
 }

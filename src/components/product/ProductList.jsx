@@ -1,6 +1,13 @@
 import React, { Component } from 'react'
 import { InventoryRemoteService } from '../../RemoteService'
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@material-ui/core'
+import { withStyles } from '@material-ui/core/styles'
+
+const useStyles = (theme) => ({
+  table: theme.table,
+  title: theme.title,
+  tableCell: theme.tableCell
+})
 
 class ProductList extends Component {
   state = {
@@ -17,29 +24,30 @@ class ProductList extends Component {
     })
   }
   render() {
+    const { classes } = this.props
     let tableData = this.state.products.map(product => {
       return (
         <TableRow key={ product.id }>
-          <TableCell onClick={ () => this.getRecord(product.id) } component="th" scope="row">
+          <TableCell className={ classes.tableCell } onClick={ () => this.getRecord(product.id) } component="th" scope="row">
             { product.id }
           </TableCell>
-          <TableCell align="right">{ product.name }</TableCell>
-          <TableCell align="right">{ product.price }</TableCell>
-          <TableCell align="right">{ product.category }</TableCell>
-          <TableCell align="right">{ product.paymentId }</TableCell>
+          <TableCell className={ classes.tableCell } align="right">{ product.name }</TableCell>
+          <TableCell className={ classes.tableCell } align="right">{ product.price }</TableCell>
+          <TableCell className={ classes.tableCell } align="right">{ product.category }</TableCell>
+          <TableCell className={ classes.tableCell } align="right">{ product.paymentId }</TableCell>
         </TableRow>
       )
     })
     let table = (
-      <TableContainer component={ Paper }>
+      <TableContainer className={ classes.table } component={ Paper }>
         <Table aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell>Id</TableCell>
-              <TableCell align="right">Name</TableCell>
-              <TableCell align="right">Price</TableCell>
-              <TableCell align="right">Category</TableCell>
-              <TableCell align="right">Payment Id</TableCell>
+              <TableCell className={ classes.tableCell }>Id</TableCell>
+              <TableCell className={ classes.tableCell } align="right">Name</TableCell>
+              <TableCell className={ classes.tableCell } align="right">Price</TableCell>
+              <TableCell className={ classes.tableCell } align="right">Category</TableCell>
+              <TableCell className={ classes.tableCell } align="right">Payment Id</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -50,11 +58,11 @@ class ProductList extends Component {
     )
     return (
       <div>
-        <h3>Products</h3>
+        <h3 className={ classes.title }>Products</h3>
         { tableData.length !== 0 ? table : null }
       </div>
     )
   }
 }
 
-export default ProductList
+export default (withStyles(useStyles)(ProductList))

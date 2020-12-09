@@ -27,10 +27,8 @@ class OrderList extends Component {
     const { classes } = this.props
     let tableData = this.state.orders.map(order => {
       return (
-        <TableRow key={ order.id }>
-          <TableCell className={ classes.tableCell } onClick={ () => this.getRecord(order.id) } component="th" scope="row">
-            { order.id }
-          </TableCell>
+        <TableRow key={ order.id } onClick={ () => this.getRecord(order.id) }>
+          <TableCell className={ classes.tableCell } component="th" scope="row">{ order.id }</TableCell>
           <TableCell className={ classes.tableCell } align="right">{ order.status }</TableCell>
           <TableCell className={ classes.tableCell } align="right">{ order.customerId }</TableCell>
           <TableCell className={ classes.tableCell } align="right">{ order.paymentId }</TableCell>

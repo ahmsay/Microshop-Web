@@ -27,10 +27,8 @@ class ProductList extends Component {
     const { classes } = this.props
     let tableData = this.state.products.map(product => {
       return (
-        <TableRow key={ product.id }>
-          <TableCell className={ classes.tableCell } onClick={ () => this.getRecord(product.id) } component="th" scope="row">
-            { product.id }
-          </TableCell>
+        <TableRow key={ product.id } onClick={ () => this.getRecord(product.id) }>
+          <TableCell className={ classes.tableCell } component="th" scope="row">{ product.id }</TableCell>
           <TableCell className={ classes.tableCell } align="right">{ product.name }</TableCell>
           <TableCell className={ classes.tableCell } align="right">{ product.price }</TableCell>
           <TableCell className={ classes.tableCell } align="right">{ product.category }</TableCell>

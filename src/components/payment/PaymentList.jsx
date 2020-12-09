@@ -27,10 +27,8 @@ class PaymentList extends Component {
     const { classes } = this.props
     let tableData = this.state.payments.map(payment => {
       return (
-        <TableRow key={ payment.id }>
-          <TableCell className={ classes.tableCell } onClick={ () => this.getRecord(payment.id) } component="th" scope="row">
-            { payment.id }
-          </TableCell>
+        <TableRow key={ payment.id } onClick={ () => this.getRecord(payment.id) }>
+          <TableCell className={ classes.tableCell } component="th" scope="row">{ payment.id }</TableCell>
           <TableCell className={ classes.tableCell } align="right">{ payment.totalCharge }</TableCell>
           <TableCell className={ classes.tableCell } align="right">{ payment.customerId }</TableCell>
         </TableRow>

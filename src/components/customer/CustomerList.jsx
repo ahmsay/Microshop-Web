@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
 import { AccountRemoteService } from '../../RemoteService'
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@material-ui/core'
+import { List, ListItem, ListItemText } from '@material-ui/core'
 import { withStyles } from '@material-ui/core/styles'
 
 const useStyles = (theme) => ({
-  table: theme.table,
   title: theme.title,
-  tableCell: theme.tableCell
+  list: theme.list
 })
 
 class CustomerList extends Component {
@@ -25,33 +24,22 @@ class CustomerList extends Component {
   }
   render() {
     const { classes } = this.props
-    let tableData = this.state.customers.map(customer => {
+    const listData = this.state.customers.map(customer => {
       return (
-        <TableRow key={ customer.id } onClick={ () => this.getRecord(customer.id) }>
-          <TableCell className={ classes.tableCell } component="th" scope="row">{ customer.id }</TableCell>
-          <TableCell className={ classes.tableCell } align="right">{ customer.name }</TableCell>
-        </TableRow>
+        <ListItem key={ customer.id } onClick={ () => this.getRecord(customer.id) } button>
+          <ListItemText primary={ customer.name }/>
+        </ListItem>
       )
     })
-    let table = (
-      <TableContainer className={ classes.table } component={ Paper }>
-        <Table aria-label="simple table">
-          <TableHead>
-            <TableRow>
-              <TableCell className={ classes.tableCell }>Id</TableCell>
-              <TableCell className={ classes.tableCell } align="right">Name</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            { tableData }
-          </TableBody>
-        </Table>
-      </TableContainer>
+    const list = (
+      <List className={ classes.list }>
+        { listData }
+      </List>
     )
     return (
       <div>
         <h3 className={ classes.title }>Customers</h3>
-        { tableData.length !== 0 ? table : null }
+        { listData.length === 0 ? null : list }
       </div>
     )
   }

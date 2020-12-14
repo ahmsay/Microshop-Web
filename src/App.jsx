@@ -21,14 +21,12 @@ const theme = createMuiTheme({
       main: secondary
     }
   },
-  table: {
-    backgroundColor: secondary
-  },
   title: {
     color: secondary
   },
-  tableCell: {
-    borderBottomColor: primary
+  list: {
+    color: primary,
+    backgroundColor: secondary
   }
 })
 

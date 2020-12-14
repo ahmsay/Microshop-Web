@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
 import { OrderRemoteService } from '../../RemoteService'
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@material-ui/core'
+import { List, ListItem, ListItemText } from '@material-ui/core'
 import { withStyles } from '@material-ui/core/styles'
 
 const useStyles = (theme) => ({
-  table: theme.table,
   title: theme.title,
-  tableCell: theme.tableCell
+  list: theme.list
 })
 
 class OrderList extends Component {
@@ -25,37 +24,22 @@ class OrderList extends Component {
   }
   render() {
     const { classes } = this.props
-    let tableData = this.state.orders.map(order => {
+    let listData = this.state.orders.map(order => {
       return (
-        <TableRow key={ order.id } onClick={ () => this.getRecord(order.id) }>
-          <TableCell className={ classes.tableCell } component="th" scope="row">{ order.id }</TableCell>
-          <TableCell className={ classes.tableCell } align="right">{ order.status }</TableCell>
-          <TableCell className={ classes.tableCell } align="right">{ order.customerId }</TableCell>
-          <TableCell className={ classes.tableCell } align="right">{ order.paymentId }</TableCell>
-        </TableRow>
+        <ListItem key={ order.id } onClick={ () => this.getRecord(order.id) } button>
+          <ListItemText primary={ order.id } secondary={ order.status }/>
+        </ListItem>
       )
     })
-    let table = (
-      <TableContainer className={ classes.table } component={ Paper }>
-        <Table aria-label="simple table">
-          <TableHead>
-            <TableRow>
-              <TableCell className={ classes.tableCell }>Id</TableCell>
-              <TableCell className={ classes.tableCell } align="right">Status</TableCell>
-              <TableCell className={ classes.tableCell } align="right">Customer Id</TableCell>
-              <TableCell className={ classes.tableCell } align="right">Payment Id</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            { tableData }
-          </TableBody>
-        </Table>
-      </TableContainer>
+    let list = (
+      <List className={ classes.list }>
+        { listData }
+      </List>
     )
     return (
       <div>
         <h3 className={ classes.title }>Orders</h3>
-        { tableData.length !== 0 ? table : null }
+        { listData.length === 0 ? null : list }
       </div>
     )
   }

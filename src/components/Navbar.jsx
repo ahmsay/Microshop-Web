@@ -4,6 +4,7 @@ import { AppBar, Toolbar, Button, Typography, ButtonGroup } from '@material-ui/c
 
 const Navbar = () => {
   const pages = [
+    { title: 'Dashboard', route: '/' },
     { title: 'Customers', route: '/customers' },
     { title: 'Products', route: '/products' },
     { title: 'Payments', route: '/payments' },

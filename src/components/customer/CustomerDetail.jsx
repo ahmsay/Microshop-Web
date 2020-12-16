@@ -7,8 +7,10 @@ const SimpleDialog = ({ onClose, open }) => {
   }
   return (
     <Dialog onClose={ handleClose } aria-labelledby="simple-dialog-title" open={open}>
-      <DialogTitle>Set backup account</DialogTitle>
-      test
+      <DialogTitle>Title</DialogTitle>
+      <div>
+        asd
+      </div>
     </Dialog>
   )
 }

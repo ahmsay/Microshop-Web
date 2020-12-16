@@ -8,9 +8,18 @@ const SimpleDialog = ({ open, customer, onClose }) => {
   }
   return (
     <Dialog onClose={ handleClose } aria-labelledby="simple-dialog-title" open={open}>
-      <DialogTitle>Title</DialogTitle>
+      <DialogTitle>Customer Detail</DialogTitle>
       <div>
-        asd
+        { customer.id }
+      </div>
+      <div>
+        { customer.name }
+      </div>
+      <div>
+        { customer.paymentList.length }
+      </div>
+      <div>
+        { customer.orderList.length }
       </div>
     </Dialog>
   )

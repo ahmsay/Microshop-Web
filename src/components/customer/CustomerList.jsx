@@ -15,12 +15,8 @@ class CustomerList extends Component {
     open: false,
     customer: {}
   }
-  handleClickOpen = () => {
-    this.setState({ open: true })
-  }
-  handleClose = () => {
-    this.setState({ open: false })
-  }
+  handleClickOpen = () => { this.setState({ open: true }) }
+  handleClose = () => { this.setState({ open: false }) }
   componentDidMount() {
     AccountRemoteService.getCustomers().then(customers => {
       this.setState({ customers })

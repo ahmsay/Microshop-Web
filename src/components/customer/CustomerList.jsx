@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { AccountRemoteService } from '../../RemoteService'
-import { List, ListItem, ListItemText, Button } from '@material-ui/core'
+import { List, ListItem, ListItemText } from '@material-ui/core'
 import { withStyles } from '@material-ui/core/styles'
 import CustomerDetail from '../customer/CustomerDetail'
 
@@ -12,7 +12,8 @@ const useStyles = (theme) => ({
 class CustomerList extends Component {
   state = {
     customers: [],
-    open: false
+    open: false,
+    customer: {}
   }
   handleClickOpen = () => {
     this.setState({ open: true })
@@ -27,7 +28,8 @@ class CustomerList extends Component {
   }
   getRecord = (id) => {
     AccountRemoteService.getCustomerById(id).then(customer => {
-      console.log(customer)
+      this.setState({ customer})
+      this.handleClickOpen()
     })
   }
   render() {
@@ -48,10 +50,7 @@ class CustomerList extends Component {
       <div>
         <h3 className={ classes.title }>Customers</h3>
         { listData.length === 0 ? null : list }
-        <Button variant="outlined" color="secondary" onClick={ this.handleClickOpen }>
-          Open simple dialog
-        </Button>
-        <CustomerDetail open={this.state.open} onClose={ this.handleClose }/>
+        <CustomerDetail open={ this.state.open } customer={ this.state.customer } onClose={ this.handleClose }/>
       </div>
     )
   }

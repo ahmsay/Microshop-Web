@@ -1,7 +1,8 @@
 import React from 'react'
 import { Dialog, DialogTitle } from '@material-ui/core'
 
-const SimpleDialog = ({ onClose, open }) => {
+const SimpleDialog = ({ open, customer, onClose }) => {
+  console.log(customer)
   const handleClose = () => {
     onClose()
   }

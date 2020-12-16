@@ -13,7 +13,7 @@ class CustomerList extends Component {
   state = {
     customers: [],
     open: false,
-    customer: {}
+    customer: { paymentList: [], orderList: [] }
   }
   handleClickOpen = () => { this.setState({ open: true }) }
   handleClose = () => { this.setState({ open: false }) }

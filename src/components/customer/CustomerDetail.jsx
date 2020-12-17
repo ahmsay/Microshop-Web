@@ -1,11 +1,8 @@
 import React from 'react'
 import { Dialog, DialogTitle } from '@material-ui/core'
 
-const SimpleDialog = ({ open, customer, onClose }) => {
-  console.log(customer)
-  const handleClose = () => {
-    onClose()
-  }
+const CustomerDetail = ({ open, customer, onClose }) => {
+  const handleClose = () => { onClose() }
   return (
     <Dialog onClose={ handleClose } aria-labelledby="simple-dialog-title" open={open}>
       <DialogTitle>Customer Detail</DialogTitle>
@@ -25,4 +22,4 @@ const SimpleDialog = ({ open, customer, onClose }) => {
   )
 }
 
-export default SimpleDialog
+export default CustomerDetail

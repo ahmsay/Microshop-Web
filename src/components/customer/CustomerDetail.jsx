@@ -23,7 +23,7 @@ const CustomerDetail = ({ open, customer, onClose, classes }) => {
           </Typography>
         </CardContent>
         <CardActions>
-          <Button size="small">Close</Button>
+          <Button size="small" onClick={ handleClose }>Close</Button>
         </CardActions>
       </Card>
     </Dialog>

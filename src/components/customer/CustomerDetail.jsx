@@ -6,10 +6,10 @@ const useStyles = (theme) => ({
   card: theme.card
 })
 
-const CustomerDetail = ({ open, customer, onClose, classes }) => {
-  const handleClose = () => { onClose() }
+const CustomerDetail = ({ dialogOpen, customer, toggle, classes }) => {
+  const closeDialog = () => { toggle() }
   return (
-    <Dialog onClose={ handleClose } open={open}>
+    <Dialog onClose={ closeDialog } open={ dialogOpen }>
       <Card className={ classes.card }>
         <CardContent>
           <Typography gutterBottom variant="h6">
@@ -23,7 +23,7 @@ const CustomerDetail = ({ open, customer, onClose, classes }) => {
           </Typography>
         </CardContent>
         <CardActions>
-          <Button size="small" onClick={ handleClose }>Close</Button>
+          <Button size="small" onClick={ closeDialog }>Close</Button>
         </CardActions>
       </Card>
     </Dialog>

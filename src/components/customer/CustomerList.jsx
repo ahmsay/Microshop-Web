@@ -12,20 +12,21 @@ const useStyles = (theme) => ({
 class CustomerList extends Component {
   state = {
     customers: [],
-    open: false,
+    dialogOpen: false,
     customer: { paymentList: [], orderList: [] }
   }
-  handleClickOpen = () => { this.setState({ open: true }) }
-  handleClose = () => { this.setState({ open: false }) }
   componentDidMount() {
     AccountRemoteService.getCustomers().then(customers => {
       this.setState({ customers })
     })
   }
+  toggleDialog = (val) => {
+    this.setState({ dialogOpen: val })
+  }
   getRecord = (id) => {
     AccountRemoteService.getCustomerById(id).then(customer => {
       this.setState({ customer})
-      this.handleClickOpen()
+      this.toggleDialog(true)
     })
   }
   render() {
@@ -46,7 +47,7 @@ class CustomerList extends Component {
       <div>
         <h3 className={ classes.title }>Customers</h3>
         { listData.length === 0 ? null : list }
-        <CustomerDetail open={ this.state.open } customer={ this.state.customer } onClose={ this.handleClose }/>
+        <CustomerDetail dialogOpen={ this.state.dialogOpen } customer={ this.state.customer } toggle={ () => this.toggleDialog(false) }/>
       </div>
     )
   }

@@ -47,7 +47,7 @@ class CustomerList extends Component {
       <div>
         <h3 className={ classes.title }>Customers</h3>
         { listData.length === 0 ? null : list }
-        <CustomerDetail dialogOpen={ this.state.dialogOpen } customer={ this.state.customer } toggle={ () => this.toggleDialog(false) }/>
+        <CustomerDetail open={ this.state.dialogOpen } customer={ this.state.customer } toggle={ () => this.toggleDialog(false) }/>
       </div>
     )
   }

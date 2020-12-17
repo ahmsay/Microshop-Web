@@ -6,19 +6,19 @@ const useStyles = (theme) => ({
   card: theme.card
 })
 
-const CustomerDetail = ({ dialogOpen, customer, toggle, classes }) => {
+const CustomerDetail = ({ open, customer, toggle, classes }) => {
   const closeDialog = () => { toggle() }
   return (
-    <Dialog onClose={ closeDialog } open={ dialogOpen }>
+    <Dialog onClose={ closeDialog } open={ open }>
       <Card className={ classes.card }>
         <CardContent>
           <Typography gutterBottom variant="h6">
             Customer Detail
           </Typography>
-          <Typography variant="body2">
+          <Typography variant="body1">
             Id: { customer.id }
           </Typography>
-          <Typography variant="body2">
+          <Typography variant="body1">
             Name: { customer.name }
           </Typography>
         </CardContent>

@@ -1,11 +1,16 @@
 import React from 'react'
 import { Dialog, Card, CardContent, CardActions, Button, Typography } from '@material-ui/core'
+import { withStyles } from '@material-ui/core/styles'
 
-const CustomerDetail = ({ open, customer, onClose }) => {
+const useStyles = (theme) => ({
+  card: theme.card
+})
+
+const CustomerDetail = ({ open, customer, onClose, classes }) => {
   const handleClose = () => { onClose() }
   return (
     <Dialog onClose={ handleClose } open={open}>
-      <Card>
+      <Card className={ classes.card }>
         <CardContent>
           <Typography gutterBottom variant="h6">
             Customer Detail
@@ -25,4 +30,4 @@ const CustomerDetail = ({ open, customer, onClose }) => {
   )
 }
 
-export default CustomerDetail
+export default (withStyles(useStyles)(CustomerDetail))

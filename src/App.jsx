@@ -27,6 +27,10 @@ const theme = createMuiTheme({
   list: {
     color: primary,
     backgroundColor: secondary
+  },
+  card: {
+    color: primary,
+    backgroundColor: secondary
   }
 })
 

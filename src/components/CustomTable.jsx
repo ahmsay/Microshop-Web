@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Table = ({ }) => {
+const CustomTable = ({ }) => {
   const fieldNames = ['Id', 'Name']
   const data = [{id: 1, name: 'Zorkov'}, {id: 2, name: 'Nihilus'}]
   const tableHead = fieldNames.map(field => {
@@ -22,4 +22,4 @@ const Table = ({ }) => {
   )
 }
 
-export default Table
+export default CustomTable

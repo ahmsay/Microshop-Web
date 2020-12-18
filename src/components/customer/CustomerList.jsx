@@ -3,6 +3,7 @@ import { AccountRemoteService } from '../../RemoteService'
 import { List, ListItem, ListItemText } from '@material-ui/core'
 import { withStyles } from '@material-ui/core/styles'
 import CustomerDetail from '../customer/CustomerDetail'
+import CustomTable from '../CustomTable'
 
 const useStyles = (theme) => ({
   title: theme.title,
@@ -48,6 +49,7 @@ class CustomerList extends Component {
         <h3 className={ classes.title }>Customers</h3>
         { listData.length === 0 ? null : list }
         <CustomerDetail open={ this.state.dialogOpen } customer={ this.state.customer } toggle={ () => this.toggleDialog(false) }/>
+        <CustomTable/>
       </div>
     )
   }

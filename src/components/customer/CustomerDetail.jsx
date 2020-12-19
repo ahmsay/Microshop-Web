@@ -8,6 +8,29 @@ const useStyles = (theme) => ({
 
 const CustomerDetail = ({ open, customer, toggle, classes }) => {
   const closeDialog = () => { toggle() }
+  const paymentList = (
+    <div>
+      <Typography variant="body1">Payment List</Typography>
+      <TableContainer component={ Paper }>
+        <Table>
+          <TableHead>
+            <TableRow>
+              <TableCell>Id</TableCell>
+              <TableCell align="right">Name</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {customer.paymentList.map((payment) => (
+              <TableRow key={ payment.id }>
+                <TableCell component="th">{ payment.id }</TableCell>
+                <TableCell align="right">{ payment.totalCharge }</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </div>
+  )
   return (
     <Dialog onClose={ closeDialog } open={ open }>
       <Card className={ classes.card }>
@@ -21,24 +44,7 @@ const CustomerDetail = ({ open, customer, toggle, classes }) => {
           <Typography variant="body1">
             Name: { customer.name }
           </Typography>
-          <TableContainer component={ Paper }>
-            <Table>
-              <TableHead>
-                <TableRow>
-                  <TableCell>Id</TableCell>
-                  <TableCell align="right">Name</TableCell>
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {customer.paymentList.map((payment) => (
-                  <TableRow key={ payment.id }>
-                    <TableCell component="th">{ payment.id }</TableCell>
-                    <TableCell align="right">{ payment.totalCharge }</TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-          </TableContainer>
+          { paymentList }
         </CardContent>
         <CardActions>
           <Button size="small" onClick={ closeDialog }>Close</Button>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Dialog, Card, CardContent, CardActions, Button, Typography, TableContainer, Table, TableHead, TableBody, TableCell, TableRow } from '@material-ui/core'
+import { Dialog, Card, CardContent, CardActions, Button, Typography } from '@material-ui/core'
 import { withStyles } from '@material-ui/core/styles'
 
 const useStyles = (theme) => ({
@@ -10,9 +10,52 @@ const useStyles = (theme) => ({
 
 const OrderDetail = ({ open, order, toggle, classes }) => {
   const closeDialog = () => { toggle() }
+  const customerInfo = (
+    <div>
+      <Typography gutterBottom variant="h6">
+        <b>Customer Information</b>
+      </Typography>
+      <Typography variant="body1">
+        Id: { order.customer.id }
+      </Typography>
+      <Typography variant="body1">
+        Name: { order.customer.name }
+      </Typography>
+    </div>
+  )
+  const paymentInfo = (
+    <div>
+      <Typography gutterBottom variant="h6">
+        <b>Payment Information</b>
+      </Typography>
+      <Typography variant="body1">
+        Id: { order.payment.id }
+      </Typography>
+      <Typography variant="body1">
+        Total Charge: { order.payment.totalCharge }
+      </Typography>
+    </div>
+  )
   return (
     <Dialog onClose={ closeDialog } open={ open }>
-      <div>order detail</div>
+      <Card className={ classes.card }>
+        <CardContent>
+          <Typography gutterBottom variant="h6">
+            <b>Order Detail</b>
+          </Typography>
+          <Typography variant="body1">
+            Id: { order.id }
+          </Typography>
+          <Typography variant="body1">
+            Status: { order.status }
+          </Typography>
+          { customerInfo }
+          { paymentInfo }
+        </CardContent>
+        <CardActions>
+          <Button size="small" onClick={ closeDialog }>Close</Button>
+        </CardActions>
+      </Card>
     </Dialog>
   )
 }

@@ -20,7 +20,7 @@ const CustomerDetail = ({ open, customer, toggle, classes }) => {
           <TableHead>
             <TableRow>
               <TableCell className={ classes.tableCell }>Id</TableCell>
-              <TableCell className={ classes.tableCell } align="right">Name</TableCell>
+              <TableCell className={ classes.tableCell } align="right">Total Charge</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -28,6 +28,31 @@ const CustomerDetail = ({ open, customer, toggle, classes }) => {
               <TableRow key={ payment.id }>
                 <TableCell className={ classes.tableCell } component="th">{ payment.id }</TableCell>
                 <TableCell className={ classes.tableCell } align="right">{ payment.totalCharge }</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </div>
+  )
+  const orderList = (
+    <div>
+      <Typography variant="body1">
+        <b>Order List</b>
+      </Typography>
+      <TableContainer>
+        <Table className={ classes.table }>
+          <TableHead>
+            <TableRow>
+              <TableCell className={ classes.tableCell }>Id</TableCell>
+              <TableCell className={ classes.tableCell } align="right">Status</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {customer.orderList.map((order) => (
+              <TableRow key={ order.id }>
+                <TableCell className={ classes.tableCell } component="th">{ order.id }</TableCell>
+                <TableCell className={ classes.tableCell } align="right">{ order.status }</TableCell>
               </TableRow>
             ))}
           </TableBody>
@@ -49,6 +74,7 @@ const CustomerDetail = ({ open, customer, toggle, classes }) => {
             Name: { customer.name }
           </Typography>
           { paymentList }
+          { orderList }
         </CardContent>
         <CardActions>
           <Button size="small" onClick={ closeDialog }>Close</Button>

@@ -1,29 +1,33 @@
 import React from 'react'
-import { Dialog, Card, CardContent, CardActions, Button, Typography, TableContainer, Table, TableHead, TableBody, TableCell, TableRow, Paper } from '@material-ui/core'
+import { Dialog, Card, CardContent, CardActions, Button, Typography, TableContainer, Table, TableHead, TableBody, TableCell, TableRow } from '@material-ui/core'
 import { withStyles } from '@material-ui/core/styles'
 
 const useStyles = (theme) => ({
-  card: theme.card
+  card: theme.card,
+  table: theme.table,
+  tableCell: theme.tableCell
 })
 
 const CustomerDetail = ({ open, customer, toggle, classes }) => {
   const closeDialog = () => { toggle() }
   const paymentList = (
     <div>
-      <Typography variant="body1">Payment List</Typography>
-      <TableContainer component={ Paper }>
-        <Table>
+      <Typography variant="body1">
+        <b>Payment List</b>
+      </Typography>
+      <TableContainer>
+        <Table className={ classes.table }>
           <TableHead>
             <TableRow>
-              <TableCell>Id</TableCell>
-              <TableCell align="right">Name</TableCell>
+              <TableCell className={ classes.tableCell }>Id</TableCell>
+              <TableCell className={ classes.tableCell } align="right">Name</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {customer.paymentList.map((payment) => (
               <TableRow key={ payment.id }>
-                <TableCell component="th">{ payment.id }</TableCell>
-                <TableCell align="right">{ payment.totalCharge }</TableCell>
+                <TableCell className={ classes.tableCell } component="th">{ payment.id }</TableCell>
+                <TableCell className={ classes.tableCell } align="right">{ payment.totalCharge }</TableCell>
               </TableRow>
             ))}
           </TableBody>
@@ -36,7 +40,7 @@ const CustomerDetail = ({ open, customer, toggle, classes }) => {
       <Card className={ classes.card }>
         <CardContent>
           <Typography gutterBottom variant="h6">
-            Customer Detail
+            <b>Customer Detail</b>
           </Typography>
           <Typography variant="body1">
             Id: { customer.id }

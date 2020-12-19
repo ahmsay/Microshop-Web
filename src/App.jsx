@@ -31,6 +31,13 @@ const theme = createMuiTheme({
   card: {
     color: primary,
     backgroundColor: secondary
+  },
+  table: {
+    color: primary,
+    backgroundColor: secondary
+  },
+  tableCell: {
+    borderBottomColor: primary
   }
 })
 

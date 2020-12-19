@@ -1,5 +1,5 @@
 import React from 'react'
-import { Dialog, Card, CardContent, CardActions, Button, Typography } from '@material-ui/core'
+import { Dialog, Card, CardContent, CardActions, Button, Typography, TableContainer, Table, TableHead, TableBody, TableCell, TableRow, Paper } from '@material-ui/core'
 import { withStyles } from '@material-ui/core/styles'
 
 const useStyles = (theme) => ({
@@ -8,10 +8,6 @@ const useStyles = (theme) => ({
 
 const CustomerDetail = ({ open, customer, toggle, classes }) => {
   const closeDialog = () => { toggle() }
-  const paymentColumns = [
-    { field: 'id', headerName: 'Id', width: 70 },
-    { field: 'totalCharge', headerName: 'Total Charge', width: 130 }
-  ]
   return (
     <Dialog onClose={ closeDialog } open={ open }>
       <Card className={ classes.card }>
@@ -25,6 +21,24 @@ const CustomerDetail = ({ open, customer, toggle, classes }) => {
           <Typography variant="body1">
             Name: { customer.name }
           </Typography>
+          <TableContainer component={ Paper }>
+            <Table>
+              <TableHead>
+                <TableRow>
+                  <TableCell>Id</TableCell>
+                  <TableCell align="right">Name</TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {customer.paymentList.map((payment) => (
+                  <TableRow key={ payment.id }>
+                    <TableCell component="th">{ payment.id }</TableCell>
+                    <TableCell align="right">{ payment.totalCharge }</TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
         </CardContent>
         <CardActions>
           <Button size="small" onClick={ closeDialog }>Close</Button>

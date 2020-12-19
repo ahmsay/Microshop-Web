@@ -8,10 +8,12 @@ const useStyles = (theme) => ({
   tableCell: theme.tableCell
 })
 
-const OrderDetail = ({ open, customer, toggle, classes }) => {
+const OrderDetail = ({ open, order, toggle, classes }) => {
   const closeDialog = () => { toggle() }
   return (
-    <div>order detail</div>
+    <Dialog onClose={ closeDialog } open={ open }>
+      <div>order detail</div>
+    </Dialog>
   )
 }
 

@@ -12,8 +12,8 @@ const useStyles = (theme) => ({
 class CustomerList extends Component {
   state = {
     customers: [],
-    dialogOpen: false,
-    customer: { paymentList: [], orderList: [] }
+    customer: { paymentList: [], orderList: [] },
+    dialogOpen: false
   }
   componentDidMount() {
     AccountRemoteService.getCustomers().then(customers => {
@@ -25,7 +25,7 @@ class CustomerList extends Component {
   }
   getRecord = (id) => {
     AccountRemoteService.getCustomerById(id).then(customer => {
-      this.setState({ customer})
+      this.setState({ customer })
       this.toggleDialog(true)
     })
   }

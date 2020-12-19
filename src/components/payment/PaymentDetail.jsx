@@ -8,10 +8,12 @@ const useStyles = (theme) => ({
   tableCell: theme.tableCell
 })
 
-const PaymentDetail = ({ open, customer, toggle, classes }) => {
+const PaymentDetail = ({ open, payment, toggle, classes }) => {
   const closeDialog = () => { toggle() }
   return (
-    <div>payment detail</div>
+    <Dialog onClose={ closeDialog } open={ open }>
+      <div>payment detail</div>
+    </Dialog>
   )
 }
 

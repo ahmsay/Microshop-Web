@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { OrderRemoteService } from '../../RemoteService'
 import { List, ListItem, ListItemText } from '@material-ui/core'
 import { withStyles } from '@material-ui/core/styles'
+import OrderDetail from '../order/OrderDetail'
 
 const useStyles = (theme) => ({
   title: theme.title,
@@ -10,16 +11,22 @@ const useStyles = (theme) => ({
 
 class OrderList extends Component {
   state = {
-    orders: []
+    orders: [],
+    order: { customer: { }, payment: { } },
+    dialogOpen: false
   }
   componentDidMount() {
     OrderRemoteService.getOrders().then(orders => {
       this.setState({ orders })
     })
   }
+  toggleDialog = (val) => {
+    this.setState({ dialogOpen: val })
+  }
   getRecord = (id) => {
     OrderRemoteService.getOrderById(id).then(order => {
-      console.log(order)
+      this.setState({ order })
+      this.toggleDialog(true)
     })
   }
   render() {
@@ -40,6 +47,7 @@ class OrderList extends Component {
       <div>
         <h3 className={ classes.title }>Orders</h3>
         { listData.length === 0 ? null : list }
+        <OrderDetail open={ this.state.dialogOpen } order={ this.state.order } toggle={ () => this.toggleDialog(false) }/>
       </div>
     )
   }

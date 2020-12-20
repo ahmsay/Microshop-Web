@@ -12,7 +12,7 @@ const useStyles = (theme) => ({
 class ProductList extends Component {
   state = {
     products: [],
-    product: { payment:{} },
+    product: { payment: {} },
     dialogOpen: false
   }
   componentDidMount() {

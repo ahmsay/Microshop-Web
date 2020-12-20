@@ -10,7 +10,7 @@ const useStyles = (theme) => ({
 
 const CustomerDetail = ({ open, customer, toggle, classes }) => {
   const closeDialog = () => { toggle() }
-  const paymentList = (
+  const paymentList = customer.paymentList.length === 0 ? null : (
     <div>
       <Typography variant="body1">
         <b>Payment List</b>
@@ -35,7 +35,7 @@ const CustomerDetail = ({ open, customer, toggle, classes }) => {
       </TableContainer>
     </div>
   )
-  const orderList = (
+  const orderList = customer.orderList.length === 0 ? null : (
     <div>
       <Typography variant="body1">
         <b>Order List</b>

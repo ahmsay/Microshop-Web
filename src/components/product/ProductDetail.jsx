@@ -10,7 +10,7 @@ const useStyles = (theme) => ({
 
 const ProductDetail = ({ open, product, toggle, classes }) => {
   const closeDialog = () => { toggle() }
-  const paymentInfo = (
+  const paymentInfo = product.payment === null ? null : (
     <div>
       <Typography gutterBottom variant="h6">
         <b>Payment Information</b>

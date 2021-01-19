@@ -3,8 +3,8 @@ import axios from 'axios'
 const urls = {
   accountService: 'http://localhost:8081',
   inventoryService: 'http://localhost:8082',
-  paymentService: 'http://localhost:8084',
-  orderService: 'http://localhost:8083'
+  orderService: 'http://localhost:8083',
+  paymentService: 'http://localhost:8084'
 }
 
 const AccountRemoteService = {
@@ -41,23 +41,6 @@ const InventoryRemoteService = {
   }
 }
 
-const PaymentRemoteService = {
-  getPayments() {
-    return new Promise(resolve => {
-      axios.get(urls.paymentService + '/payments').then(response => {
-        resolve(response.data)
-      })
-    })
-  },
-  getPaymentById(id) {
-    return new Promise(resolve => {
-      axios.get(urls.paymentService + '/payments/' + id).then(response => {
-        resolve(response.data)
-      })
-    })
-  }
-}
-
 const OrderRemoteService = {
   getOrders() {
     return new Promise(resolve => {
@@ -75,4 +58,21 @@ const OrderRemoteService = {
   }
 }
 
-export { AccountRemoteService, InventoryRemoteService, PaymentRemoteService, OrderRemoteService }
+const PaymentRemoteService = {
+  getPayments() {
+    return new Promise(resolve => {
+      axios.get(urls.paymentService + '/payments').then(response => {
+        resolve(response.data)
+      })
+    })
+  },
+  getPaymentById(id) {
+    return new Promise(resolve => {
+      axios.get(urls.paymentService + '/payments/' + id).then(response => {
+        resolve(response.data)
+      })
+    })
+  }
+}
+
+export { AccountRemoteService, InventoryRemoteService, OrderRemoteService, PaymentRemoteService }

@@ -7,8 +7,8 @@ const Navbar = () => {
     { title: 'Dashboard', route: '/' },
     { title: 'Customers', route: '/customers' },
     { title: 'Products', route: '/products' },
-    { title: 'Payments', route: '/payments' },
-    { title: 'Orders', route: '/orders' }
+    { title: 'Orders', route: '/orders' },
+    { title: 'Payments', route: '/payments' }
   ]
   const buttons = pages.map(page => {
     return (

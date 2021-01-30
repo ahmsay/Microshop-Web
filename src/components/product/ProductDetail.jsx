@@ -12,7 +12,7 @@ const ProductDetail = ({ open, product, toggle, classes }) => {
   const closeDialog = () => { toggle() }
   const paymentInfo = product.payment === null ? null : (
     <div>
-      <Typography gutterBottom variant="h6">
+      <Typography gutterBottom variant="body1">
         <b>Payment Information</b>
       </Typography>
       <Typography variant="body1">
@@ -31,16 +31,16 @@ const ProductDetail = ({ open, product, toggle, classes }) => {
             <b>Product Detail</b>
           </Typography>
           <Typography variant="body1">
-            Id: { product.id }
+            <b>Id:</b> { product.id }
           </Typography>
           <Typography variant="body1">
-            Name: { product.name }
+            <b>Name:</b> { product.name }
           </Typography>
           <Typography variant="body1">
-            Category: { product.category }
+            <b>Category:</b> { product.category }
           </Typography>
           <Typography variant="body1">
-            Price: { product.price }
+            <b>Price:</b> { product.price }
           </Typography>
           { paymentInfo }
         </CardContent>

@@ -21,6 +21,13 @@ const AccountRemoteService = {
         resolve(response.data)
       })
     })
+  },
+  addCustomer(customer) {
+    return new Promise(resolve => {
+      axios.post('/customers', customer).then(response => {
+        resolve(response.data)
+      })
+    })
   }
 }
 
@@ -35,6 +42,13 @@ const InventoryRemoteService = {
   getProductById(id) {
     return new Promise(resolve => {
       axios.get(urls.inventoryService + '/products/' + id).then(response => {
+        resolve(response.data)
+      })
+    })
+  },
+  addProduct(product) {
+    return new Promise(resolve => {
+      axios.post('/products', product).then(response => {
         resolve(response.data)
       })
     })
@@ -55,6 +69,13 @@ const OrderRemoteService = {
         resolve(response.data)
       })
     })
+  },
+  addOrder(order) {
+    return new Promise(resolve => {
+      axios.post('/orders', order).then(response => {
+        resolve(response.data)
+      })
+    })
   }
 }
 
@@ -69,6 +90,13 @@ const PaymentRemoteService = {
   getPaymentById(id) {
     return new Promise(resolve => {
       axios.get(urls.paymentService + '/payments/' + id).then(response => {
+        resolve(response.data)
+      })
+    })
+  },
+  addPayment(payment) {
+    return new Promise(resolve => {
+      axios.post('/payments', payment).then(response => {
         resolve(response.data)
       })
     })

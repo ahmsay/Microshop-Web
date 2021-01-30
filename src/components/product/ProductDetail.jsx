@@ -45,7 +45,7 @@ const ProductDetail = ({ open, product, toggle, classes }) => {
           { paymentInfo }
         </CardContent>
         <CardActions>
-          <Button size="small" onClick={ closeDialog }>Close</Button>
+          <Button onClick={ closeDialog }>Close</Button>
         </CardActions>
       </Card>
     </Dialog>

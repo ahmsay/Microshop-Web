@@ -77,7 +77,7 @@ const CustomerDetail = ({ open, customer, toggle, classes }) => {
           { orderList }
         </CardContent>
         <CardActions>
-          <Button size="small" onClick={ closeDialog }>Close</Button>
+          <Button onClick={ closeDialog }>Close</Button>
         </CardActions>
       </Card>
     </Dialog>

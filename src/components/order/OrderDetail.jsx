@@ -12,7 +12,7 @@ const OrderDetail = ({ open, order, toggle, classes }) => {
   const closeDialog = () => { toggle() }
   const customerInfo = (
     <div>
-      <Typography gutterBottom variant="h6">
+      <Typography gutterBottom variant="body1">
         <b>Customer Information</b>
       </Typography>
       <Typography variant="body1">
@@ -25,7 +25,7 @@ const OrderDetail = ({ open, order, toggle, classes }) => {
   )
   const paymentInfo = (
     <div>
-      <Typography gutterBottom variant="h6">
+      <Typography gutterBottom variant="body1">
         <b>Payment Information</b>
       </Typography>
       <Typography variant="body1">
@@ -44,10 +44,10 @@ const OrderDetail = ({ open, order, toggle, classes }) => {
             <b>Order Detail</b>
           </Typography>
           <Typography variant="body1">
-            Id: { order.id }
+            <b>Id:</b> { order.id }
           </Typography>
           <Typography variant="body1">
-            Status: { order.status }
+            <b>Status:</b> { order.status }
           </Typography>
           { customerInfo }
           { paymentInfo }

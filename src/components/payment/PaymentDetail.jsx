@@ -12,7 +12,7 @@ const PaymentDetail = ({ open, payment, toggle, classes }) => {
   const closeDialog = () => { toggle() }
   const customerInfo = (
     <div>
-      <Typography gutterBottom variant="h6">
+      <Typography gutterBottom variant="body1">
         <b>Customer Information</b>
       </Typography>
       <Typography variant="body1">
@@ -26,7 +26,7 @@ const PaymentDetail = ({ open, payment, toggle, classes }) => {
   const productList = (
     <div>
       <Typography variant="body1">
-        <b>Product List</b>
+        <b>Products</b>
       </Typography>
       <TableContainer>
         <Table className={ classes.table }>
@@ -60,10 +60,10 @@ const PaymentDetail = ({ open, payment, toggle, classes }) => {
             <b>Payment Detail</b>
           </Typography>
           <Typography variant="body1">
-            Id: { payment.id }
+            <b>Id:</b> { payment.id }
           </Typography>
           <Typography variant="body1">
-            Total Charge: { payment.totalCharge }
+            <b>Total Charge:</b> { payment.totalCharge }
           </Typography>
           { customerInfo }
           { productList }

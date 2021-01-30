@@ -13,7 +13,7 @@ const CustomerDetail = ({ open, customer, toggle, classes }) => {
   const paymentList = customer.paymentList.length === 0 ? null : (
     <div>
       <Typography variant="body1">
-        <b>Payment List</b>
+        <b>Payments</b>
       </Typography>
       <TableContainer>
         <Table className={ classes.table }>
@@ -36,9 +36,9 @@ const CustomerDetail = ({ open, customer, toggle, classes }) => {
     </div>
   )
   const orderList = customer.orderList.length === 0 ? null : (
-    <div>
+    <div style={{ marginTop: 15 }}>
       <Typography variant="body1">
-        <b>Order List</b>
+        <b>Orders</b>
       </Typography>
       <TableContainer>
         <Table className={ classes.table }>
@@ -68,10 +68,10 @@ const CustomerDetail = ({ open, customer, toggle, classes }) => {
             <b>Customer Detail</b>
           </Typography>
           <Typography variant="body1">
-            Id: { customer.id }
+            <b>Id:</b> { customer.id }
           </Typography>
           <Typography variant="body1">
-            Name: { customer.name }
+            <b>Name:</b> { customer.name }
           </Typography>
           { paymentList }
           { orderList }

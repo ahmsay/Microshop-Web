@@ -61,7 +61,7 @@ const CustomerDetail = ({ open, customer, toggle, classes }) => {
     </div>
   )
   return (
-    <Dialog onClose={ closeDialog } open={ open }>
+    <Dialog onClose={ closeDialog } open={ open } fullWidth={ true } maxWidth={ 'sm' }>
       <Card className={ classes.card }>
         <CardContent>
           <Typography gutterBottom variant="h6">

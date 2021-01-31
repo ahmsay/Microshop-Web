@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { InventoryRemoteService } from '../../RemoteService'
+import { InventoryRemoteService } from '../../Remote'
 import { List, ListItem, ListItemText } from '@material-ui/core'
 import { withStyles } from '@material-ui/core/styles'
 import ProductDetail from '../product/ProductDetail'

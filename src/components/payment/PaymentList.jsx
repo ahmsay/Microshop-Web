@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { PaymentRemoteService } from '../../RemoteService'
+import { PaymentRemoteService } from '../../Remote'
 import { List, ListItem, ListItemText } from '@material-ui/core'
 import { withStyles } from '@material-ui/core/styles'
 import PaymentDetail from '../payment/PaymentDetail'

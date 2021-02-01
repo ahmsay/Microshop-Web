@@ -31,14 +31,14 @@ class PaymentList extends Component {
   }
   render() {
     const { classes } = this.props
-    let listData = this.state.payments.map(payment => {
+    const listData = this.state.payments.map(payment => {
       return (
         <ListItem key={ payment.id } onClick={ () => this.getRecord(payment.id) } button>
           <ListItemText primary={ payment.id } secondary={ '$' + payment.totalCharge }/>
         </ListItem>
       )
     })
-    let list = (
+    const list = (
       <List className={ classes.list }>
         { listData }
       </List>

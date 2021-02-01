@@ -31,14 +31,14 @@ class OrderList extends Component {
   }
   render() {
     const { classes } = this.props
-    let listData = this.state.orders.map(order => {
+    const listData = this.state.orders.map(order => {
       return (
         <ListItem key={ order.id } onClick={ () => this.getRecord(order.id) } button>
           <ListItemText primary={ order.id } secondary={ order.status }/>
         </ListItem>
       )
     })
-    let list = (
+    const list = (
       <List className={ classes.list }>
         { listData }
       </List>

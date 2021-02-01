@@ -31,7 +31,7 @@ class ProductList extends Component {
   }
   render() {
     const { classes } = this.props
-    let listData = this.state.products.map(product => {
+    const listData = this.state.products.map(product => {
       return (
         <ListItem key={ product.id } onClick={ () => this.getRecord(product.id) } button>
           <ListItemText primary={ product.name } secondary={ '$' + product.price }/>

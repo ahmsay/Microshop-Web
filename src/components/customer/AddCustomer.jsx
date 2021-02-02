@@ -1,4 +1,10 @@
 import React, { Component } from 'react'
+import { withStyles } from '@material-ui/core/styles'
+import {Button, Typography, TextField, Card, CardContent, CardActions} from '@material-ui/core'
+
+const useStyles = (theme) => ({
+    card: theme.card
+})
 
 class AddCustomer extends Component {
   state = {
@@ -14,15 +20,23 @@ class AddCustomer extends Component {
     console.log(this.state)
   }
   render() {
+    const { classes } = this.props
     return (
       <form onSubmit={ this.handleSubmit }>
-        <h4>Add New Customer</h4>
-        <label htmlFor="name">Name</label>
-        <input type="text" id="name" onChange={ this.handleChange }/>
-        <button>Add</button>
+        <Card className={ classes.card }>
+          <CardContent style={{ paddingTop: 20}}>
+            <Typography variant="body1">
+              <b>Add New Customer</b>
+            </Typography>
+            <TextField id="name" label="Name" onChange={ this.handleChange }/>
+          </CardContent>
+          <CardActions>
+            <Button type="submit">Add</Button>
+          </CardActions>
+        </Card>
       </form>
     )
   }
 }
 
-export default AddCustomer
+export default withStyles(useStyles)(AddCustomer)

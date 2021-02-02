@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
 import { withStyles } from '@material-ui/core/styles'
-import {Button, Typography, TextField, Card, CardContent, CardActions} from '@material-ui/core'
+import { Button, Typography, TextField, Card, CardContent, CardActions } from '@material-ui/core'
 
 const useStyles = (theme) => ({
-    card: theme.card
+  card: theme.card
 })
 
 class AddCustomer extends Component {
   state = {
-      name: ''
+    name: ''
   }
   handleChange = (e) => {
     this.setState({
@@ -24,7 +24,7 @@ class AddCustomer extends Component {
     return (
       <form onSubmit={ this.handleSubmit }>
         <Card className={ classes.card }>
-          <CardContent style={{ paddingTop: 20}}>
+          <CardContent style={{ paddingTop: 20 }}>
             <Typography variant="body1">
               <b>Add New Customer</b>
             </Typography>

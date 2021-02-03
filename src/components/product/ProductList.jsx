@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { InventoryRemoteService } from '../../Remote'
-import { List, ListItem, ListItemText } from '@material-ui/core'
+import { List, ListItem, ListItemText, Grid } from '@material-ui/core'
 import { withStyles } from '@material-ui/core/styles'
 import ProductDetail from '../product/ProductDetail'
 import AddProduct from '../product/AddProduct'
@@ -47,8 +47,14 @@ class ProductList extends Component {
     return (
       <div>
         <h3 className={ classes.title }>Products</h3>
-        <AddProduct/>
-        { listData.length === 0 ? null : list }
+        <Grid container direction={"row"} spacing={2}>
+          <Grid item>
+            { listData.length === 0 ? null : list }
+          </Grid>
+          <Grid item>
+            <AddProduct/>
+          </Grid>
+        </Grid>
         <ProductDetail open={ this.state.dialogOpen } product={ this.state.product } toggle={ () => this.toggleDialog(false) }/>
       </div>
     )

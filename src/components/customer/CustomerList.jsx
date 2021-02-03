@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { AccountRemoteService } from '../../Remote'
-import { List, ListItem, ListItemText } from '@material-ui/core'
+import { List, ListItem, ListItemText, Grid } from '@material-ui/core'
 import { withStyles } from '@material-ui/core/styles'
 import CustomerDetail from '../customer/CustomerDetail'
 import AddCustomer from '../customer/AddCustomer'
@@ -47,8 +47,14 @@ class CustomerList extends Component {
     return (
       <div>
         <h3 className={ classes.title }>Customers</h3>
-        <AddCustomer/>
-        { listData.length === 0 ? null : list }
+        <Grid container direction={"row"} spacing={2}>
+          <Grid item>
+            { listData.length === 0 ? null : list }
+          </Grid>
+          <Grid item>
+            <AddCustomer/>
+          </Grid>
+        </Grid>
         <CustomerDetail open={ this.state.dialogOpen } customer={ this.state.customer } toggle={ () => this.toggleDialog(false) }/>
       </div>
     )
